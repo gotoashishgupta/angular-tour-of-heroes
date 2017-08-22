@@ -1,6 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
+import { PolymerModule } from '@codebakery/origami';
+/**
+ * @Optional: There are many collections to import, such as iron, paper, and gold elements
+ */
+import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib/collections'; // Optional
 
 import { AppComponent } from './app.component';
 
@@ -8,9 +14,15 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+
+    PolymerModule.forRoot(),
+    // Optional polymer modules to help reduce markup complexity
+    IronElementsModule,
+    PaperElementsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

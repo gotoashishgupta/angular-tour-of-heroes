@@ -1,0 +1,34 @@
+{
+  "name": "angular-tour-of-heroes",
+  "description": "Learning angular, RxJs, using Polymer, creating angular universal app with SSR, i18n and l10n, etc.",
+  "main": "./src/index.html",
+  "authors": [
+    "Ashish Gupta <ashish.gupta5@ge.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "RxJs",
+    "Polymer",
+    "angular-universal",
+    "i18n",
+    "l10n",
+    "SSR",
+    "immutable"
+  ],
+  "homepage": "http://localhost:4200/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-input": "PolymerElements/paper-input#^2.0.1",
+    "paper-button": "PolymerElements/paper-button#^2.0.0",
+    "polymer": "Polymer/polymer#^2.0.2"
+  }
+}
