@@ -9,10 +9,13 @@ import { PolymerModule } from '@codebakery/origami';
 import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib/collections'; // Optional
 
 import { AppComponent } from './app.component';
+import { HeroDetailComponent } from './hero-detail.component';
 
 @NgModule({
+  // array contains a list of application components, pipes, and directives that belong to the module
   declarations: [
-    AppComponent
+    AppComponent,
+    HeroDetailComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

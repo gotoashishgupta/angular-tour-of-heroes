@@ -2,10 +2,7 @@ import { Component } from '@angular/core';
 
 import { List } from 'immutable';
 
-export class Hero {
-  public id: number;
-  public name: string;
-}
+import { Hero } from './hero';
 
 const HEROES: List<Hero> = List<Hero>([
   { id: 11, name: 'Mr. Nice' },
@@ -37,20 +34,7 @@ const HEROES: List<Hero> = List<Hero>([
     </li>
   </ul>
 
-  <div *ngIf="selectedHero">
-    <h2>{{selectedHero.name}} details!</h2>
-    <div><label>id: </label>{{selectedHero.id}}</div>
-    <div>
-    <!--
-      @NOTE: If the app imported collection modules, such as PaperElementsModule,
-      [emitChanges] and [ironControl] must not be added to elements that the collection provides selectors for.
-        * Add the [emitChanges] directive to all custom elements using two-way data binding.
-        * Add [ironControl] to control elements that should work in Angular forms.
-    -->
-      <paper-input label="Name" name="name" required [(ngModel)]="selectedHero.name" placeholder="Name"></paper-input>
-      <input [(ngModel)]="selectedHero.name" placeholder="name">
-    </div>
-  </div>
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
   `),
   styles: [`
     .selected {
