@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 
+import { List } from 'immutable';
+
 export class Hero {
   public id: number;
   public name: string;
 }
 
-const HEROES: Array<Hero> = [
+const HEROES: List<Hero> = List<Hero>([
   { id: 11, name: 'Mr. Nice' },
   { id: 12, name: 'Narco' },
   { id: 13, name: 'Bombasto' },
@@ -16,12 +18,14 @@ const HEROES: Array<Hero> = [
   { id: 18, name: 'Dr IQ' },
   { id: 19, name: 'Magma' },
   { id: 20, name: 'Tornado' }
-];
+]);
 
 @Component({
   selector: 'app-root',
   template: (`
   <h1>{{title}}</h1>
+
+  <span>First Hero: {{hero.name}}</span>
 
   <h2>My Heroes</h2>
   <ul class="heroes">
@@ -50,8 +54,9 @@ const HEROES: Array<Hero> = [
   `),
   styles: [`
     .selected {
-      background-color: #CFD8DC !important;
-      color: white;
+      background-color: #005cb9 !important;
+      border: 1px solid #005cb9;
+      color: #fff;
     }
     .heroes {
       margin: 0 0 2em 0;
@@ -70,12 +75,12 @@ const HEROES: Array<Hero> = [
       border-radius: 4px;
     }
     .heroes li.selected:hover {
-      background-color: #BBD8DC !important;
-      color: white;
+      background-color: #005cb9 !important;
+      border: 1px solid #005cb9;
+      color: #fff;
     }
     .heroes li:hover {
-      color: #607D8B;
-      background-color: #DDD;
+      border: 1px solid #005cb9;
       left: .1em;
     }
     .heroes .text {
@@ -87,7 +92,7 @@ const HEROES: Array<Hero> = [
       font-size: small;
       color: white;
       padding: 0.8em 0.7em 0 0.7em;
-      background-color: #607D8B;
+      background-color: #005cb9;
       line-height: 1em;
       position: relative;
       left: -1px;
@@ -101,10 +106,10 @@ const HEROES: Array<Hero> = [
 export class AppComponent {
   public title = 'Tour of Heroes';
 
-  private hero: Hero = HEROES.slice(0, 1)[0];
+  public hero: Hero = HEROES.first();
 
   public selectedHero: Hero;
-  public heroes: Hero[] = HEROES;
+  public heroes: List<Hero> = HEROES;
 
   public onSelect(hero: Hero): void {
     this.selectedHero = hero;
