@@ -17,3 +17,8 @@ webcomponentsReady().then(() => {
   // No WebComponent support and webcomponentsjs is not loaded
   console.error(error);
 });
+
+// HMR support
+if (module['hot']) {
+  module['hot'].accept();
+}
