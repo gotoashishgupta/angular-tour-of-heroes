@@ -1,28 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { List } from 'immutable';
 
 import { Hero } from './hero';
 
-const HEROES: List<Hero> = List<Hero>([
-  { id: 11, name: 'Mr. Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
-]);
+import { HeroService } from './hero.service';
 
 @Component({
   selector: 'app-root',
   template: (`
   <h1>{{title}}</h1>
 
-  <span>First Hero: {{hero.name}}</span>
+  <span *ngIf="hero">First Hero: {{hero.name}}</span>
 
   <h2>My Heroes</h2>
   <ul class="heroes">
@@ -85,17 +74,30 @@ const HEROES: List<Hero> = List<Hero>([
       margin-right: .8em;
       border-radius: 4px 0 0 4px;
     }
-  `]
+  `],
+  providers: [HeroService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public title = 'Tour of Heroes';
 
-  public hero: Hero = HEROES.first();
+  public hero: Hero;
 
   public selectedHero: Hero;
-  public heroes: List<Hero> = HEROES;
+  public heroes: List<Hero>;
+
+  constructor(private heroService: HeroService) { }
+
+  public ngOnInit(): void {
+    this.getHeroes();
+  }
 
   public onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+  public getHeroes(): void {
+    this.heroService.getHeroesSlowly().then(heroes => {
+      this.heroes = heroes;
+      this.hero = heroes.first();
+    });
   }
 }
