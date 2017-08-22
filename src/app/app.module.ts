@@ -10,11 +10,14 @@ import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib
 
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail.component';
+import { HeroesComponent } from './heroes.component';
+import { HeroService } from './hero.service';
 
 @NgModule({
   // array contains a list of application components, pipes, and directives that belong to the module
   declarations: [
     AppComponent,
+    HeroesComponent,
     HeroDetailComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -27,7 +30,9 @@ import { HeroDetailComponent } from './hero-detail.component';
     IronElementsModule,
     PaperElementsModule
   ],
-  providers: [],
+  providers: [
+    HeroService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
