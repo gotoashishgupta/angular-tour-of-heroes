@@ -1,6 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { PolymerModule } from '@codebakery/origami';
 /**
@@ -24,6 +25,13 @@ import { HeroService } from './hero.service';
   imports: [
     BrowserModule,
     FormsModule,
+
+    RouterModule.forRoot([
+      {
+        path: 'heroes',
+        component: HeroesComponent
+      }
+    ]),
 
     PolymerModule.forRoot(),
     // Optional polymer modules to help reduce markup complexity
