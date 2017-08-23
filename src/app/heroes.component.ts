@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { List } from 'immutable';
 
@@ -17,7 +18,7 @@ export class HeroesComponent implements OnInit {
   public selectedHero: Hero;
   public heroes: List<Hero>;
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private router: Router) { }
 
   public ngOnInit(): void {
     this.getHeroes();
@@ -31,5 +32,9 @@ export class HeroesComponent implements OnInit {
       this.heroes = heroes;
       this.hero = heroes.first();
     });
+  }
+
+  public gotoDetail(): void {
+    this.router.navigate(['/detail', this.selectedHero.id]);
   }
 }

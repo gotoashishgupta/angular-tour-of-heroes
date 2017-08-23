@@ -7,4 +7,7 @@
   </li>
 </ul>
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<div *ngIf="selectedHero">
+  My hero {{selectedHero.name | uppercase }} is awesome!!
+  <paper-button raised (click)="gotoDetail()">{{selectedHero.name | uppercase }} Details</paper-button>
+</div>
