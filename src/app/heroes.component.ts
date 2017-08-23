@@ -8,20 +8,7 @@ import { HeroService } from './hero.service';
 
 @Component({
   selector: 'app-heroes',
-  template: (`
-  <span *ngIf="hero">First Hero: {{hero.name}}</span>
-  <h2 class="text-blue">My Heroes</h2>
-  <ul class="heroes">
-    <li *ngFor="let hero of heroes"
-      (click)="onSelect(hero)"
-      [class.selected]="hero === selectedHero">
-      <!-- each hero goes here -->
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </li>
-  </ul>
-
-  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
-  `),
+  templateUrl: './heroes.component.html',
   styles: [`
     .selected {
       background-color: #005cb9 !important;
