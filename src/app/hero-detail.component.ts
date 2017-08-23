@@ -1,24 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Location } from '@angular/common';
 import { Hero } from './hero';
+
+import { HeroService } from './hero.service';
+
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-hero-detail',
-  template: `
-    <div *ngIf="hero">
-      <h2>{{hero.name}} details!</h2>
-      <div><label>id: </label>{{hero.id}}</div>
-      <div>
-      <!--
-        @NOTE: If the app imported collection modules, such as PaperElementsModule,
-        [emitChanges] and [ironControl] must not be added to elements that the collection provides selectors for.
-          * Add the [emitChanges] directive to all custom elements using two-way data binding.
-          * Add [ironControl] to control elements that should work in Angular forms.
-      -->
-        <paper-input label="Name" name="name" required [(ngModel)]="hero.name" placeholder="Name"></paper-input>
-        <input [(ngModel)]="hero.name" placeholder="name">
-      </div>
-    </div>
-  `,
+  templateUrl: './hero-detail.component.html',
   styles: [`
     .text-blue {
       color: #005cb9;
@@ -26,7 +17,20 @@ import { Hero } from './hero';
   `]
 
 })
-export class HeroDetailComponent {
+export class HeroDetailComponent implements OnInit {
   @Input()
   public hero: Hero;
+
+  public constructor(private heroService: HeroService, private activatedRoute: ActivatedRoute,
+    private location: Location) {
+
+  }
+
+  public ngOnInit() {
+    this.activatedRoute.paramMap
+      .switchMap((params: ParamMap) => {
+        return this.heroService.getHero(+params.get('id'));
+      }).subscribe(hero => this.hero = hero);
+  }
+
 }
