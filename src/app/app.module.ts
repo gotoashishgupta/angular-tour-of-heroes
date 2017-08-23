@@ -14,12 +14,15 @@ import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroService } from './hero.service';
 
+import { DashboardComponent } from './dashboard.component';
+
 @NgModule({
   // array contains a list of application components, pipes, and directives that belong to the module
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    DashboardComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
@@ -27,6 +30,15 @@ import { HeroService } from './hero.service';
     FormsModule,
 
     RouterModule.forRoot([
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
       {
         path: 'heroes',
         component: HeroesComponent
