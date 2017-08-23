@@ -10,11 +10,8 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
-  styles: [`
-    .text-blue {
-      color: #005cb9;
-    }
-  `]
+  // Styles in a component are fully local to the component and don't bleed to outside components
+  styleUrls: ['./hero-detail.component.css']
 
 })
 export class HeroDetailComponent implements OnInit {

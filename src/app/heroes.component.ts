@@ -10,7 +10,7 @@ import { HeroService } from './hero.service';
   selector: 'app-heroes',
   template: (`
   <span *ngIf="hero">First Hero: {{hero.name}}</span>
-  <h2>My Heroes</h2>
+  <h2 class="text-blue">My Heroes</h2>
   <ul class="heroes">
     <li *ngFor="let hero of heroes"
       (click)="onSelect(hero)"
