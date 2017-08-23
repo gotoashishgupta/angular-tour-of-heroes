@@ -1,13 +1,14 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
 import { PolymerModule } from '@codebakery/origami';
 /**
  * @Optional: There are many collections to import, such as iron, paper, and gold elements
  */
 import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib/collections'; // Optional
+
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail.component';
@@ -29,25 +30,7 @@ import { DashboardComponent } from './dashboard.component';
     BrowserModule,
     FormsModule,
 
-    RouterModule.forRoot([
-      {
-        path: '',
-        redirectTo: 'dashboard',
-        pathMatch: 'full'
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
-      {
-        path: 'heroes',
-        component: HeroesComponent
-      },
-      {
-        path: 'detail/:id',
-        component: HeroDetailComponent
-      }
-    ]),
+    AppRoutingModule,
 
     PolymerModule.forRoot(),
     // Optional polymer modules to help reduce markup complexity
