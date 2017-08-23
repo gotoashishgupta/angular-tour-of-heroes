@@ -1,6 +1,11 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+// in memory api stub
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 import { PolymerModule } from '@codebakery/origami';
 /**
@@ -29,6 +34,10 @@ import { DashboardComponent } from './dashboard.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
+
+    // mock data service
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
 
     AppRoutingModule,
 
