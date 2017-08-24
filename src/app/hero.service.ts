@@ -34,6 +34,14 @@ export class HeroService {
       .then(() => hero)
       .catch(this._handleError);
   }
+
+  public create(name: string) {
+    return this.http
+      .post(this._heroesApiEndpoint, JSON.stringify({ name }), { headers: this._headers })
+      .toPromise()
+      .then((res) => res.json().data as Hero)
+      .catch(this._handleError);
+  }
   private _handleError(error: any): Promise<any> {
     console.error('An API error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
