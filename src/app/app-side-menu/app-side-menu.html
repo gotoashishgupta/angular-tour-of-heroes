@@ -1,2 +1,3 @@
-<px-app-nav class="flex" (click)="navigate($event,this)" [items]="sideMenuItems" vertical>
+<px-app-nav class="flex" (click)="navigate($event,this)" [items]="sideMenuItems" vertical [(selected)]="navigateToRoute"
+  emitChanges>
 </px-app-nav>

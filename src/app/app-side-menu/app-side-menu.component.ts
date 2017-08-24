@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router';
+
+import { PolymerChanges } from '@codebakery/origami';
+
+import { AppSideMenuRoute } from './app-side-menu-route';
+
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-side-menu',
@@ -7,9 +13,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./app-side-menu.scss']
 })
 export class SideMenuComponent implements OnInit {
-  public sideMenuItems: Array<{}>;
-  public pathPrefix: string;
-  constructor(public route: ActivatedRoute) { }
+  public sideMenuItems: AppSideMenuRoute[];
+  @PolymerChanges()
+  public navigateToRoute: any;
+  constructor(private _router: Router, private _activatedRoute: ActivatedRoute) { }
   public ngOnInit() {
     this.sideMenuItems = [
       {
@@ -36,13 +43,12 @@ export class SideMenuComponent implements OnInit {
             'id': 'a2'
           }
         ]
-      }];
-
-    this.pathPrefix = '/';
+      }
+    ];
   }
 
   private navigate(e: Event, ele: HTMLElement): void {
-    console.log(ele, e);
     e.preventDefault();
+    this._router.navigate([this.navigateToRoute.id]);
   }
 }
