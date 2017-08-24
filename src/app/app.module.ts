@@ -21,6 +21,7 @@ import { HeroesComponent } from './heroes.component';
 import { HeroService } from './hero.service';
 
 import { DashboardComponent } from './dashboard.component';
+import { HeroSearchComponent } from './hero-search.component';
 
 @NgModule({
   // array contains a list of application components, pipes, and directives that belong to the module
@@ -28,7 +29,8 @@ import { DashboardComponent } from './dashboard.component';
     AppComponent,
     HeroesComponent,
     HeroDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
