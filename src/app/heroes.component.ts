@@ -13,8 +13,6 @@ import { HeroService } from './hero.service';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  public hero: Hero;
-
   public selectedHero: Hero;
   public heroes: List<Hero>;
 
@@ -30,7 +28,6 @@ export class HeroesComponent implements OnInit {
   public getHeroes(): void {
     this.heroService.getHeroes().then((heroes: List<Hero>) => {
       this.heroes = heroes;
-      this.hero = List(heroes).first();
     });
   }
 
@@ -51,7 +48,6 @@ export class HeroesComponent implements OnInit {
     this.heroService.delete(hero)
       .then(() => {
         this.heroes = this.heroes.filter(h => h !== hero) as List<Hero>;
-        this.hero = List(this.heroes).first();
         if (this.selectedHero === hero) {
           this.selectedHero = null;
         }
