@@ -35,11 +35,20 @@ export class HeroService {
       .catch(this._handleError);
   }
 
-  public create(name: string) {
+  public create(name: string): Promise<Hero> {
     return this.http
       .post(this._heroesApiEndpoint, JSON.stringify({ name }), { headers: this._headers })
       .toPromise()
       .then((res) => res.json().data as Hero)
+      .catch(this._handleError);
+  }
+
+  public delete(hero: Hero): Promise<void> {
+    const _url = `${this._heroesApiEndpoint}/${hero.id}`;
+    return this.http
+      .delete(_url, { headers: this._headers })
+      .toPromise()
+      .then(() => null)
       .catch(this._handleError);
   }
   private _handleError(error: any): Promise<any> {

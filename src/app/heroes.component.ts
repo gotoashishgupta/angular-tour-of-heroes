@@ -44,6 +44,20 @@ export class HeroesComponent implements OnInit {
       });
   }
 
+  public delete(hero: Hero): void {
+    if (!hero || hero.id === undefined) {
+      return;
+    }
+    this.heroService.delete(hero)
+      .then(() => {
+        this.heroes = this.heroes.filter(h => h !== hero) as List<Hero>;
+        this.hero = List(this.heroes).first();
+        if (this.selectedHero === hero) {
+          this.selectedHero = null;
+        }
+      });
+  }
+
   public gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedHero.id]);
   }
