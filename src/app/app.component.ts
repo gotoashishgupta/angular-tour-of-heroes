@@ -1,14 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: (`
-    <h1>{{title}}</h1>
-
-    <a routerLink="/">Dashboard</a>
-    <a routerLink="/heroes">Heroes</a>
-    <router-outlet></router-outlet>
-  `)
+  // encapsulation: ViewEncapsulation.Emulated,
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
 
