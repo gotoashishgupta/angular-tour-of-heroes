@@ -1,5 +1,15 @@
 <span *ngIf="hero">First Hero: {{hero.name}}</span>
+
 <h2>My Heroes</h2>
+
+<div>
+  <label>Hero name:</label>
+  <paper-input #heroName placeholder="Name"></paper-input>
+  <paper-button raised (click)="add(heroName.value); heroName.value=''">
+    Add
+  </paper-button>
+</div>
+
 <ul class="heroes">
   <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
     <!-- each hero goes here -->
