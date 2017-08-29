@@ -30,17 +30,25 @@ export class SideMenuComponent implements OnInit {
         icon: 'px-fea:templates'
       },
       {
-        'label': 'Assets',
-        'id': 'assets',
+        'label': 'Style Guide',
+        'id': 'styleguide',
         'icon': 'px-fea:asset',
         'children': [
           {
-            'label': 'Asset #1',
-            'id': 'a1'
+            'label': 'Color Palette',
+            'id': 'color-palette'
           },
           {
-            'label': 'Asset #2',
-            'id': 'a2'
+            'label': 'Typography',
+            'id': 'typography'
+          },
+          {
+            'label': 'Flexbox Grid',
+            'id': 'flexbox-grid'
+          },
+          {
+            'label': 'Buttons',
+            'id': 'buttons'
           }
         ]
       }
