@@ -1,21 +1,4 @@
-px-app-nav,
-px-app-nav::shadow {
-  border-right: 1px solid rgba(0, 0, 0, 0.15);
-  box-shadow: 1px 0 1px 0 rgba(0, 0, 0, 0.15);
-  & svg path {
-    fill: inherit;
-    stroke: inherit;
-    stroke-width: inherit;
-  }
-  & .navbar__item {
-    & a.selected,
-    & a.selected:hover {
-      border-right: 0 none;
-      border-left: 2px solid #005cb9;
-    }
-    & a.subselected,
-    & a.subselected:hover {
-      background-color: #ececf0;
-    }
-  }
+:host {
+  min-width: var(--px-app-nav-vertical-width, 4rem);
+  z-index: 1;
 }
