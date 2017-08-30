@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import { PolymerChanges } from '@codebakery/origami';
 
 import { AppSideMenuRoute } from './app-side-menu-route';
 
-import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-side-menu',
@@ -14,10 +14,16 @@ import 'rxjs/add/operator/map';
 })
 export class SideMenuComponent implements OnInit {
   public sideMenuItems: AppSideMenuRoute[];
+
   @PolymerChanges()
-  public navigateToRoute: any;
-  constructor(private _router: Router, private _activatedRoute: ActivatedRoute) { }
+  public activateRouteLink: string[];
+  constructor(private _router: Router, private _route: ActivatedRoute) { }
   public ngOnInit() {
+    this._router.events.filter(event => event instanceof NavigationEnd)
+      .debug('Find End Url').subscribe((r: NavigationEnd) => {
+        this.activateRouteLink = r.urlAfterRedirects.replace(/^\/+/g, '').split('/');
+      });
+
     this.sideMenuItems = [
       {
         label: 'Dashboard',
@@ -53,10 +59,11 @@ export class SideMenuComponent implements OnInit {
         ]
       }
     ];
+
   }
 
   private navigate(e: Event, ele: HTMLElement): void {
     e.preventDefault();
-    this._router.navigate([this.navigateToRoute.id]);
+    this._router.navigate(this.activateRouteLink);
   }
 }
