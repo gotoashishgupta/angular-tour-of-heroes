@@ -21,6 +21,12 @@
       "styles": [
         "styles.scss"
       ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "assets/scss",
+          "assets/bower_components"
+        ]
+      },
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
