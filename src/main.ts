@@ -10,6 +10,7 @@ if (environment.production) {
   enableProdMode();
 }
 webcomponentsReady().then(() => {
+  console.log('Bootstraping AppModule');
   platformBrowserDynamic().bootstrapModule(AppModule, {
     enableLegacyTemplate: false
   });

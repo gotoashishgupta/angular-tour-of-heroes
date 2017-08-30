@@ -47,5 +47,8 @@
     "neon-animation": "^2.0.0",
     "iron-resizable-behavior": "^2.0.0",
     "webcomponentsjs": "^v1.0.2"
+  },
+  "devDependencies": {
+    "px-starter-kit-design": "^1.0.1"
   }
 }
