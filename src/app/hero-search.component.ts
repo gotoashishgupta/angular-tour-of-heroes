@@ -50,6 +50,13 @@ export class HeroSearchComponent implements OnInit {
       });
   }
 
+  /**
+   * Please see https://angular.io/guide/template-syntax#ngfor-with-trackby
+   */
+  public trackByHeroes(index: number, hero: Hero): number {
+    return hero.id;
+  }
+
   // Push a search term into the observable stream.
   public search(term: string): void {
     this._searchTerms.next(term);

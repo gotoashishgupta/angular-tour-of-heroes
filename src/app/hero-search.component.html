@@ -2,7 +2,12 @@
   <h4>Hero Search</h4>
   <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
   <div>
-    <div *ngFor="let hero of heroes | async" (click)="gotoDetail(hero)" class="search-result">
+
+    <!--
+      use trackBy in all *ngFor directives for better performace
+      Please see https://angular.io/guide/template-syntax#ngfor-with-trackby
+    -->
+    <div *ngFor="let hero of heroes | async; trackBy: trackByHeroes" (click)="gotoDetail(hero)" class="search-result">
       {{hero.name}}
     </div>
   </div>

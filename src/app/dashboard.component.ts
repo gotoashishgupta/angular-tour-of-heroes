@@ -24,4 +24,11 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  /**
+   * Please see https://angular.io/guide/template-syntax#ngfor-with-trackby
+   */
+  public trackByHeroes(index: number, hero: Hero): number {
+    return hero.id;
+  }
+
 }
