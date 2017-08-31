@@ -1,6 +1,10 @@
 <h3>Top Heroes</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let hero of heroes" [routerLink]="['/detail', hero.id]" class="col-1-4">
+  <!--
+    use trackBy in all *ngFor directives for better performace
+    Please see https://angular.io/guide/template-syntax#ngfor-with-trackby
+  -->
+  <a *ngFor="let hero of heroes; trackBy: trackByHeroes" [routerLink]="['/detail', hero.id]" class="col-1-4">
     <div class="module hero">
       <h4>{{hero.name}}</h4>
     </div>

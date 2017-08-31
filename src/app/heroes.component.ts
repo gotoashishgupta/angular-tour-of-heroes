@@ -31,6 +31,13 @@ export class HeroesComponent implements OnInit {
     });
   }
 
+  /**
+   * Please see https://angular.io/guide/template-syntax#ngfor-with-trackby
+   */
+  public trackByHeroes(index: number, hero: Hero): number {
+    return hero.id;
+  }
+
   public add(heroName: string): void {
     heroName = heroName.trim();
     if (!heroName) { return; }
