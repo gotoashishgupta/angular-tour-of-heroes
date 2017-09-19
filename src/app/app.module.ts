@@ -13,7 +13,7 @@ import { PolymerModule } from '@codebakery/origami';
  */
 import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib/collections'; // Optional
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routes.module';
 
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail.component';

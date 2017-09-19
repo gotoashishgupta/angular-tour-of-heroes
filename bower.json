@@ -26,29 +26,15 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "paper-input": "PolymerElements/paper-input#^2.0.1",
-    "paper-button": "PolymerElements/paper-button#^2.0.0",
-    "polymer": "Polymer/polymer#^2.0.2",
-    "px-app-nav": "^2.0.6"
-  },
   "resolutions": {
-    "polymer": "^2.0.2",
-    "px-app-nav": "2.0.2",
-    "px-theme": "^3.0.0",
-    "px-typography-design": "^2.0.0",
-    "px-colors-design": "^1.0.0",
-    "px-defaults-design": "^2.0.0",
-    "px-functions-design": "^2.0.0",
-    "px-mixins-design": "^1.0.0",
-    "iron-iconset-svg": "^2.0.0",
-    "iron-icon": "^2.0.0",
-    "iron-flex-layout": "^2.0.0",
-    "neon-animation": "^2.0.0",
-    "iron-resizable-behavior": "^2.0.0",
-    "webcomponentsjs": "^v1.0.2"
+    "webcomponentsjs": "^v1.0.2",
+    "polymer": "^2.0.2"
   },
-  "devDependencies": {
-    "px-starter-kit-design": "^1.0.1"
+  "dependencies": {
+    "px-app-nav": "https://github.build.ge.com/212591749/px-app-nav.git#^2.0.9-alpha.0.1",
+    "px-starter-kit-design": "^1.0.1",
+    "paper-input": "^2.0.2",
+    "paper-button": "^2.0.0",
+    "polymer": "^2.0.2"
   }
 }
