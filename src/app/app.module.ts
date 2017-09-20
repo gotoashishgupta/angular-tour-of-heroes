@@ -24,6 +24,7 @@ import { DashboardComponent } from './dashboard.component';
 import { HeroSearchComponent } from './hero-search.component';
 
 import { SideMenuComponent } from './app-side-menu';
+
 @NgModule({
   // array contains a list of application components, pipes, and directives that belong to the module
   declarations: [
