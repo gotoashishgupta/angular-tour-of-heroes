@@ -6,7 +6,6 @@ import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
@@ -19,12 +18,13 @@ const routes: Routes = [
   },
   { path: 'styleguide/color-palette', component: DashboardComponent },
   { path: 'styleguide/flexbox-grid', component: DashboardComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      enableTracing: true  // <-- debugging purposes only
+      enableTracing: false  // <-- debugging purposes only
     })
   ],
   exports: [RouterModule]
