@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
-import { Hero } from './hero';
+import { Hero } from '../shared/models/hero';
 
-import { HeroService } from './hero.service';
+import { HeroService } from '../shared/services/hero.service';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -11,7 +11,7 @@ import 'rxjs/add/operator/switchMap';
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
   // Styles in a component are fully local to the component and don't bleed to outside components
-  styleUrls: ['./hero-detail.component.css']
+  styleUrls: ['./hero-detail.component.scss']
 
 })
 export class HeroDetailComponent implements OnInit {

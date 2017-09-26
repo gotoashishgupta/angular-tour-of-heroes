@@ -4,11 +4,11 @@ import { Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
-import './rxjs-debug';
+import '../rxjs-debug';
 
 import { List } from 'immutable';
-import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+import { Hero } from '../shared/models/hero';
+import { HEROES } from '../shared/mocks/mock-heroes';
 
 @Injectable()
 export class HeroSearchService {

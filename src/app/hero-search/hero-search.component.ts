@@ -15,13 +15,13 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import { List } from 'immutable';
 
 import { HeroSearchService } from './hero-search.service';
-import { Hero } from './hero';
+import { Hero } from '../shared/models/hero';
 
 
 @Component({
   selector: 'app-hero-search',
   templateUrl: './hero-search.component.html',
-  styleUrls: ['./hero-search.component.css'],
+  styleUrls: ['./hero-search.component.scss'],
   providers: [
     HeroSearchService
   ]

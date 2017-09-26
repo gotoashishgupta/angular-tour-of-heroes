@@ -28,7 +28,7 @@
   ],
   "resolutions": {
     "webcomponentsjs": "^v1.0.2",
-    "polymer": "^2.0.2"
+    "polymer": "1.9 - 2"
   },
   "dependencies": {
     "px-app-nav": "https://github.build.ge.com/212591749/px-app-nav.git#^2.0.9-alpha.0.1",
@@ -37,6 +37,8 @@
     "paper-button": "^2.0.0",
     "polymer": "^2.0.2",
     "px-theme": "^3.0.15",
-    "px-tabs": "^2.0.3"
+    "px-tabs": "^2.0.3",
+    "px-datetime-picker": "^1.0.4",
+    "px-tooltip": "^1.0.5"
   }
 }

@@ -4,8 +4,8 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { List } from 'immutable';
-import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+import { Hero } from '../models/hero';
+import { HEROES } from '../mocks/mock-heroes';
 
 @Injectable()
 export class HeroService {

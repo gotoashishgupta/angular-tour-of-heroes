@@ -20,7 +20,10 @@ export const SIDE_MENU_ITEMS: List<SideMenuItemModel> = List<SideMenuItemModel>(
   {
     label: 'Px Components', id: 'px-components', icon: 'px-fea:products',
     children: [
-      { label: 'Px Tabs', id: 'px-tabs' }
+      { label: 'Px Tabs', id: 'px-tabs' },
+      { label: 'Px App Nav', id: 'px-app-nav' },
+      { label: 'Px Date Time Picker', id: 'px-datetime-picker' },
+      { label: 'Px Tooltip', id: 'px-tooltip' }
     ]
   }
   // { label: 'Hero Details', id: 'detail', icon: 'px-fea:asset' },

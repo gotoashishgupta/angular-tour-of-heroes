@@ -5,5 +5,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./px.component.scss']
 })
 export class PxComponent implements OnInit {
-  public ngOnInit(): void { }
+  public title;
+  public subtitle;
+  public ngOnInit(): void {
+    this.title = 'Px Components Demo';
+  }
 }

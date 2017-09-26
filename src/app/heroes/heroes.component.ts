@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 
 import { List } from 'immutable';
 
-import { Hero } from './hero';
+import { Hero } from '../shared/models/hero';
 
-import { HeroService } from './hero.service';
+import { HeroService } from '../shared/services/hero.service';
 
 @Component({
   selector: 'app-heroes',
