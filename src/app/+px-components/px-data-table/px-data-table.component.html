@@ -1,0 +1,8 @@
+<div>
+  <px-data-table [tableData]="sampleTableData" page-size="5" #myTable>
+  </px-data-table>
+
+  read in ng Total Rows: {{sampleTableData.length}}
+
+  <paper-button (click)="addNewRow()">Add New Row</paper-button>
+</div>
