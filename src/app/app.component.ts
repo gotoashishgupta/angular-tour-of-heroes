@@ -12,8 +12,7 @@ import 'rxjs/add/operator/pluck';
 })
 export class AppComponent implements OnInit {
 
-  public title = 'Tour of Heroes';
-  public currentRoute: any;
+  public title = 'Angular Polymer Demo App';
 
   constructor(private _router: Router, private _activatedRoute: ActivatedRoute) { }
   public ngOnInit() {

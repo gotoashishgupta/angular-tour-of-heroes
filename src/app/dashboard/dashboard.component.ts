@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from 'immutable';
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { Hero } from '../shared/models/hero';
+import { HeroService } from '../shared/services/hero.service';
 
 
 import { PolymerChanges } from '@codebakery/origami';

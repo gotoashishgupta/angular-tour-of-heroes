@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent } from './dashboard.component';
-import { HeroesComponent } from './heroes.component';
-import { HeroDetailComponent } from './hero-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 const routes: Routes = [
+  // components
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
-  { path: 'px-components', loadChildren: './+px-components/index#PxComponentsModule' },
   {
     path: 'styleguide', component: HeroesComponent,
     children: [
@@ -19,6 +19,8 @@ const routes: Routes = [
   },
   { path: 'styleguide/color-palette', component: DashboardComponent },
   { path: 'styleguide/flexbox-grid', component: DashboardComponent },
+  // lazy loaded modules
+  { path: 'px-components', loadChildren: './+px-components/index#PxComponentsModule' },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 

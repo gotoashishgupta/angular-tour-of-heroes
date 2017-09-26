@@ -1,14 +1,15 @@
+import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 import { List } from 'immutable';
 
-import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+import { Hero } from './shared/models/hero';
+import { HEROES } from './shared/mocks/mock-heroes';
 
 import { SideMenuItemModel } from './app-side-menu/models/side-menu-item.model';
 import { SIDE_MENU_ITEMS } from './app-side-menu/mocks/mock-side-menu-items';
 
-
+@Injectable()
 export class InMemoryDataService implements InMemoryDbService {
 
   private _heroes: List<Hero> = HEROES;
