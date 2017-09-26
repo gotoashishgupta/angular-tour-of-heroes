@@ -1,8 +1,8 @@
-<div class="viewport-100vh">
-  <div class="flex flex--row u-1/1">
-    <app-side-menu></app-side-menu>
-    <div class="main-content">
-      <div class="flex flex--row flex--center">{{title}}</div>
+<div class="flex flex--row flex--grow">
+  <app-side-menu></app-side-menu>
+  <div class="main-content">
+    <div class="flex flex--center">{{title}}</div>
+    <div class="flex flex--column flex--grow">
       <router-outlet></router-outlet>
     </div>
   </div>

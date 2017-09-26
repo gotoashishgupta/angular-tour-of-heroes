@@ -51,7 +51,7 @@ export class PxDataTableComponent implements OnInit, OnPolymerChange {
       last: 'Bye ' + this.sampleTableData.length,
       email: 'yourcount' + this.sampleTableData.length + '@mail.cc'
     });
-    console.log(this.sampleTableData);
+    console.log(this.myTable.nativeElement.tableData);
   }
 
   /**

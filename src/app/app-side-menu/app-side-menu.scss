@@ -51,4 +51,6 @@
 :host {
   min-width: var(--px-app-nav-vertical-width, 4rem);
   z-index: 1;
+  min-height: 100vh;
+  height: 100%;
 }

@@ -1,17 +1,15 @@
 :host {
   position: relative;
+  display: flex;
+  flex: 1 1 0.000009%;
 
   & .px-component {
     border: 1px solid #ccc;
     padding: 1rem;
-    position: relative;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
   }
 
   & .demo-area {
-    display: flex;
-    flex-direction: row;
-    flex: 1 1 0.000009%;
     background: rgba(0, 0, 0, 0.05);
   }
 }
