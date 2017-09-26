@@ -35,6 +35,8 @@
     "px-starter-kit-design": "^1.0.1",
     "paper-input": "^2.0.2",
     "paper-button": "^2.0.0",
-    "polymer": "^2.0.2"
+    "polymer": "^2.0.2",
+    "px-theme": "^3.0.15",
+    "px-tabs": "^2.0.3"
   }
 }

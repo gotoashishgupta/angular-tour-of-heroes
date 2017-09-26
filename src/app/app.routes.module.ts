@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
+  { path: 'px-components', loadChildren: './+px-components/index#PxComponentsModule' },
   {
     path: 'styleguide', component: HeroesComponent,
     children: [

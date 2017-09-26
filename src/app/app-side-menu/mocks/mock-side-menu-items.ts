@@ -17,24 +17,30 @@ export const SIDE_MENU_ITEMS: List<SideMenuItemModel> = List<SideMenuItemModel>(
       { label: 'Buttons', id: 'buttons', icon: 'px-fea:dev-ops' }
     ]
   },
-  { label: 'Hero Details', id: 'detail', icon: 'px-fea:asset' },
-  { label: 'Cases', id: 'heroes', icon: 'px-fea:cases' },
-  { label: 'Deployments', id: 'heroes', icon: 'px-fea:deployments' },
-  { label: 'Log', id: 'heroes', icon: 'px-fea:log' },
-  { label: 'Microservice', id: 'heroes', icon: 'px-fea:microservice' },
-  { label: 'Orchestration', id: 'heroes', icon: 'px-fea:orchestration' },
-  { label: 'Orders', id: 'heroes', icon: 'px-fea:orders' },
-  { label: 'Pipeline', id: 'heroes', icon: 'px-fea:pipeline' },
-  { label: 'Products', id: 'heroes', icon: 'px-fea:products' },
-  { label: 'Spaces', id: 'heroes', icon: 'px-fea:spaces' },
-  { label: 'Tag', id: 'heroes', icon: 'px-fea:tag' },
-  { label: 'Users', id: 'heroes', icon: 'px-fea:users' },
-  { label: 'Versions', id: 'heroes', icon: 'px-fea:versions' },
-  { label: 'Administration', id: 'heroes', icon: 'px-fea:administration' },
-  { label: 'Alerts', id: 'heroes', icon: 'px-fea:alerts' },
-  { label: 'Dev-ops', id: 'heroes', icon: 'px-fea:dev-ops' },
-  { label: 'Log', id: 'heroes', icon: 'px-fea:log' },
-  { label: 'Digital-twin', id: 'heroes', icon: 'px-fea:digital-twin' },
-  { label: 'Cases', id: 'heroes', icon: 'px-fea:cases' },
-  { label: 'Orchestration', id: 'heroes', icon: 'px-fea:orchestration' }
+  {
+    label: 'Px Components', id: 'px-components', icon: 'px-fea:products',
+    children: [
+      { label: 'Px Tabs', id: 'px-tabs' }
+    ]
+  }
+  // { label: 'Hero Details', id: 'detail', icon: 'px-fea:asset' },
+  // { label: 'Cases', id: 'heroes', icon: 'px-fea:cases' },
+  // { label: 'Deployments', id: 'heroes', icon: 'px-fea:deployments' },
+  // { label: 'Log', id: 'heroes', icon: 'px-fea:log' },
+  // { label: 'Microservice', id: 'heroes', icon: 'px-fea:microservice' },
+  // { label: 'Orchestration', id: 'heroes', icon: 'px-fea:orchestration' },
+  // { label: 'Orders', id: 'heroes', icon: 'px-fea:orders' },
+  // { label: 'Pipeline', id: 'heroes', icon: 'px-fea:pipeline' },
+  // { label: 'Products', id: 'heroes', icon: 'px-fea:products' },
+  // { label: 'Spaces', id: 'heroes', icon: 'px-fea:spaces' },
+  // { label: 'Tag', id: 'heroes', icon: 'px-fea:tag' },
+  // { label: 'Users', id: 'heroes', icon: 'px-fea:users' },
+  // { label: 'Versions', id: 'heroes', icon: 'px-fea:versions' },
+  // { label: 'Administration', id: 'heroes', icon: 'px-fea:administration' },
+  // { label: 'Alerts', id: 'heroes', icon: 'px-fea:alerts' },
+  // { label: 'Dev-ops', id: 'heroes', icon: 'px-fea:dev-ops' },
+  // { label: 'Log', id: 'heroes', icon: 'px-fea:log' },
+  // { label: 'Digital-twin', id: 'heroes', icon: 'px-fea:digital-twin' },
+  // { label: 'Cases', id: 'heroes', icon: 'px-fea:cases' },
+  // { label: 'Orchestration', id: 'heroes', icon: 'px-fea:orchestration' }
 ]);
