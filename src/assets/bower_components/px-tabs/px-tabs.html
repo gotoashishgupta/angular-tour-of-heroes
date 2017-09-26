@@ -67,13 +67,8 @@ Custom property | Description
       'iron-select': '_onIronSelect'
     },
 
-    properties: {
-      _target: {
-        type: Object,
-        value: function () {
-          return this.$.container;
-        }
-      }
+    ready: function () {
+      this.set('_target', this.$.container);
     },
 
     attached: function () {
