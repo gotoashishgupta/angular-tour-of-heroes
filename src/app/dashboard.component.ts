@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { List } from 'immutable';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
+
+
+import { PolymerChanges } from '@codebakery/origami';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
   public heroes: List<Hero>;
-
   public constructor(private heroService: HeroService) {
 
   }
@@ -30,5 +32,4 @@ export class DashboardComponent implements OnInit {
   public trackByHeroes(index: number, hero: Hero): number {
     return hero.id;
   }
-
 }
