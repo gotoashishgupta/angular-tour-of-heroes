@@ -24,12 +24,15 @@
 .viewport-100vh {
   position: relative;
   display: flex;
-  flex-direction: row;
-  flex: 1 1 0.000009%;
-  width: 100%;
-  min-height: 100%;
-  height: 100vh;
+  flex-direction: column;
+  flex: 1 1 100%;
+  min-height: 100vh;
+  height: 100%;
   overflow: hidden;
+}
+
+.flex--grow {
+  flex: 1 1 0.000009%;
 }
 
 /* Trumps */
