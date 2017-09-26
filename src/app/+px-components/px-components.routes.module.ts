@@ -6,6 +6,7 @@ import { PxTabsComponent } from './px-tabs';
 import { PxAppNavComponent } from './px-app-nav';
 import { PxDatetimePickerComponent } from './px-datetime-picker';
 import { PxTooltipComponent } from './px-tooltip';
+import { PxDataTableComponent } from './px-data-table';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
       { path: 'px-tabs', component: PxTabsComponent },
       { path: 'px-app-nav', component: PxAppNavComponent },
       { path: 'px-datetime-picker', component: PxDatetimePickerComponent },
+      { path: 'px-datatable', component: PxDataTableComponent },
       { path: 'px-tooltip', component: PxTooltipComponent }
     ]
   }

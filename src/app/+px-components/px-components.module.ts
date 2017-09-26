@@ -9,6 +9,7 @@ import { PxTabsComponent } from './px-tabs';
 import { PxAppNavComponent } from './px-app-nav';
 import { PxDatetimePickerComponent } from './px-datetime-picker';
 import { PxTooltipComponent } from './px-tooltip';
+import { PxDataTableComponent } from './px-data-table';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { PxTooltipComponent } from './px-tooltip';
     PxTabsComponent,
     PxAppNavComponent,
     PxDatetimePickerComponent,
-    PxTooltipComponent
+    PxTooltipComponent,
+    PxDataTableComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -5,27 +5,17 @@ import { SideMenuItemModel } from '../models/side-menu-item.model';
 export const SIDE_MENU_ITEMS: List<SideMenuItemModel> = List<SideMenuItemModel>([
 
   { label: 'Dashboard', id: 'dashboard', icon: 'px-fea:home' },
-  { label: 'Heroes', id: 'heroes', icon: 'px-fea:templates' },
   {
-    label: 'Style Guide',
-    id: 'styleguide',
-    icon: 'px-fea:calendar',
-    children: [
-      { label: 'Color Palette', id: 'color-palette', icon: 'px-fea:users' },
-      { label: 'Typography', id: 'typography', icon: 'px-fea:spaces' },
-      { label: 'Flexbox Grid', id: 'flexbox-grid', icon: 'px-fea:tag' },
-      { label: 'Buttons', id: 'buttons', icon: 'px-fea:dev-ops' }
-    ]
-  },
-  {
-    label: 'Px Components', id: 'px-components', icon: 'px-fea:products',
+    label: 'Px Components', id: 'px-components', icon: 'px-fea:templates',
     children: [
       { label: 'Px Tabs', id: 'px-tabs' },
       { label: 'Px App Nav', id: 'px-app-nav' },
       { label: 'Px Date Time Picker', id: 'px-datetime-picker' },
+      { label: 'Px Datatable', id: 'px-datatable' },
       { label: 'Px Tooltip', id: 'px-tooltip' }
     ]
-  }
+  },
+  { label: 'Heroes', id: 'heroes', icon: 'px-fea:products' }
   // { label: 'Hero Details', id: 'detail', icon: 'px-fea:asset' },
   // { label: 'Cases', id: 'heroes', icon: 'px-fea:cases' },
   // { label: 'Deployments', id: 'heroes', icon: 'px-fea:deployments' },
