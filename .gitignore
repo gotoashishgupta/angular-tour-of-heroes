@@ -7,8 +7,6 @@
 
 # dependencies
 bower_components
-!bower_components/px-tabs/px-tabs.html
-!bower_components/px-tabs/px-tab.html
 /node_modules
 
 # IDEs and editors
