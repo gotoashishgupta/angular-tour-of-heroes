@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-px-components',
   templateUrl: './px.component.html',
-  styleUrls: ['./px.component.scss']
+  styleUrls: ['./px.component.scss'],
+  encapsulation: ViewEncapsulation.Native
 })
 export class PxComponent implements OnInit {
   public title;
