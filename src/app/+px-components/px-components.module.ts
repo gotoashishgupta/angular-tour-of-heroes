@@ -2,6 +2,13 @@ import { NgModule, ApplicationRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
+import { PolymerModule } from '@codebakery/origami';
+/**
+ * @Optional: There are many collections to import, such as iron, paper, and gold elements
+ */
+import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib/collections';
+
 import { PxComponentRoutingModule } from './px-components.routes.module';
 
 import { PxComponent } from './px.component';
@@ -17,6 +24,10 @@ import { PxDataTableComponent } from './px-data-table';
     CommonModule,
 
 
+    PolymerModule,
+    // Optional polymer modules to help reduce markup complexity
+    IronElementsModule,
+    PaperElementsModule,
 
     PxComponentRoutingModule
   ],

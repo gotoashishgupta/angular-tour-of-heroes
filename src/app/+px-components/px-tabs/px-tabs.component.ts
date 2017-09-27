@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 import { PolymerChanges } from '@codebakery/origami';
 
@@ -10,13 +10,11 @@ import { PolymerChanges } from '@codebakery/origami';
 export class PxTabsComponent implements OnInit {
 
   @PolymerChanges()
-  public selectedTab = 'tab2';
+  public selectedTab: string;
   constructor() { }
 
-  public ngOnInit() { }
-
-  public changeTab($event) {
-    console.log('hello', $event);
+  public ngOnInit() {
+    this.selectedTab = 'tab2';
   }
 
 }
