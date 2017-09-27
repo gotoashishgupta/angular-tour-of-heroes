@@ -1,8 +1,28 @@
 <div>
-  <px-data-table [tableData]="sampleTableData" page-size="5" #myTable>
+  <px-data-table [tableData]="sampleTableData" page-size="5" #myTable [includeAllColumns]="false" striped single-select show-column-chooser
+    [hidePaginationControl]="false" [sortable]="false" [filterable]="true" [selectable]="true">
+    <px-data-table-column name='first'>
+    </px-data-table-column>
   </px-data-table>
 
   read in ng Total Rows: {{sampleTableData.length}}
 
   <paper-button (click)="addNewRow()">Add New Row</paper-button>
+
+  <ul>
+    <li style="font-weight: bold;">Properties not working</li>
+    <li>sortable</li>
+    <li>filterable</li>
+    <li>include-all-columns</li>
+    <li style="font-weight: bold;">Properties not respecting default value</li>
+    <li>sortable</li>
+    <li style="font-weight: bold;">Properties partially working</li>
+    <li>selectable</li>
+    <li style="font-weight: bold;">Properties working</li>
+    <li>striped</li>
+    <li>single-select</li>
+    <li>page-size</li>
+    <li>show-column-chooser</li>
+    <li>hide-pagination-control</li>
+  </ul>
 </div>
