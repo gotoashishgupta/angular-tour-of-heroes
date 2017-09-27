@@ -37,7 +37,7 @@
     "paper-button": "^2.0.0",
     "polymer": "^2.0.2",
     "px-theme": "^3.0.15",
-    "px-tabs": "^2.0.3",
+    "px-tabs": "https://github.build.ge.com/212591749/px-tabs.git#08ad767",
     "px-datetime-picker": "^1.0.4",
     "px-tooltip": "^1.0.5",
     "px-data-table": "^4.0.10"
