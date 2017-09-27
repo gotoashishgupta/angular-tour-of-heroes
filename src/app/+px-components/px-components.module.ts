@@ -17,6 +17,7 @@ import { PxAppNavComponent } from './px-app-nav';
 import { PxDatetimePickerComponent } from './px-datetime-picker';
 import { PxTooltipComponent } from './px-tooltip';
 import { PxDataTableComponent } from './px-data-table';
+import { PxAccordionComponent } from './px-accordion';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { PxDataTableComponent } from './px-data-table';
     PxAppNavComponent,
     PxDatetimePickerComponent,
     PxTooltipComponent,
-    PxDataTableComponent
+    PxDataTableComponent,
+    PxAccordionComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

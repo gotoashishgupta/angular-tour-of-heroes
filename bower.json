@@ -40,6 +40,7 @@
     "px-tabs": "https://github.build.ge.com/212591749/px-tabs.git#08ad767",
     "px-datetime-picker": "^1.0.4",
     "px-tooltip": "^1.0.5",
-    "px-data-table": "^4.0.10"
+    "px-data-table": "^4.0.10",
+    "px-accordion": "https://github.build.ge.com/212591749/px-accordion.git#728d0be"
   }
 }

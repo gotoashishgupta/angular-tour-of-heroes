@@ -7,12 +7,14 @@ import { PxAppNavComponent } from './px-app-nav';
 import { PxDatetimePickerComponent } from './px-datetime-picker';
 import { PxTooltipComponent } from './px-tooltip';
 import { PxDataTableComponent } from './px-data-table';
+import { PxAccordionComponent } from './px-accordion';
 
 
 const routes: Routes = [
   {
     path: '', component: PxComponent,
     children: [
+      { path: 'px-accordion', component: PxAccordionComponent },
       { path: 'px-tabs', component: PxTabsComponent },
       { path: 'px-app-nav', component: PxAppNavComponent },
       { path: 'px-datetime-picker', component: PxDatetimePickerComponent },
