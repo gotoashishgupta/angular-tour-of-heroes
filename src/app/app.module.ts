@@ -49,7 +49,7 @@ import { SideMenuComponent } from './app-side-menu';
 
     AppRoutingModule,
 
-    PolymerModule,
+    PolymerModule.forRoot(),
     // Optional polymer modules to help reduce markup complexity
     IronElementsModule,
     PaperElementsModule
