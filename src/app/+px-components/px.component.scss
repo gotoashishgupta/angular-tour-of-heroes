@@ -1,15 +1,10 @@
 :host {
   position: relative;
   display: flex;
-  flex: 1 1 0.000009%;
+  flex: 1 1 100%;
 
   & .px-component {
     border: 1px solid #ccc;
     padding: 1rem;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
-  }
-
-  & .demo-area {
-    background: rgba(0, 0, 0, 0.05);
   }
 }
