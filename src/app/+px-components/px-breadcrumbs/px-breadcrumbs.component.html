@@ -5,9 +5,11 @@
   Change breadcrumb doesn't get reflected in selectedRoute but throws error
   <pre>
     The following item could not be found in the items graph: {{'{}'}}
-</pre> source of which is buggy implementation of _dropdownTap function event.target.selected & evt.target.items points to wrong
-  item
-
+</pre> source of which is in _dropdownTap function event.target.selected & evt.target.items points to px-breadcrumb instead of
+  px-dropdown
+  <div style="color: green;">
+    The issue is fixed in <span style="font-weight: bold;">git@github.build.ge.com:212591749/px-breadcrumbs.git#f6f42dd</span>
+  </div>
 </div>
 
 <div>
