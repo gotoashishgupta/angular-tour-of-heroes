@@ -19,6 +19,8 @@ import { PxTooltipComponent } from './px-tooltip';
 import { PxDataTableComponent } from './px-data-table';
 import { PxAccordionComponent } from './px-accordion';
 import { PxAlertMessageComponent } from './px-alert-message';
+import { PxBrandingBarComponent } from './px-branding-bar';
+
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { PxAlertMessageComponent } from './px-alert-message';
     PxTooltipComponent,
     PxDataTableComponent,
     PxAlertMessageComponent,
+    PxBrandingBarComponent,
     PxAccordionComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

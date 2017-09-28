@@ -9,7 +9,7 @@ import { PxTooltipComponent } from './px-tooltip';
 import { PxDataTableComponent } from './px-data-table';
 import { PxAccordionComponent } from './px-accordion';
 import { PxAlertMessageComponent } from './px-alert-message';
-
+import { PxBrandingBarComponent } from './px-branding-bar';
 
 const routes: Routes = [
   {
@@ -21,7 +21,8 @@ const routes: Routes = [
       { path: 'px-datetime-picker', component: PxDatetimePickerComponent },
       { path: 'px-datatable', component: PxDataTableComponent },
       { path: 'px-alert-message', component: PxAlertMessageComponent },
-      { path: 'px-tooltip', component: PxTooltipComponent }
+      { path: 'px-tooltip', component: PxTooltipComponent },
+      { path: 'px-branding-bar', component: PxBrandingBarComponent }
 
     ]
   }
