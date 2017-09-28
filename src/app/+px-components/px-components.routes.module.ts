@@ -10,6 +10,7 @@ import { PxDataTableComponent } from './px-data-table';
 import { PxAccordionComponent } from './px-accordion';
 import { PxAlertMessageComponent } from './px-alert-message';
 import { PxBrandingBarComponent } from './px-branding-bar';
+import { PxBreadcrumbsComponent } from './px-breadcrumbs';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
       { path: 'px-datatable', component: PxDataTableComponent },
       { path: 'px-alert-message', component: PxAlertMessageComponent },
       { path: 'px-tooltip', component: PxTooltipComponent },
-      { path: 'px-branding-bar', component: PxBrandingBarComponent }
+      { path: 'px-branding-bar', component: PxBrandingBarComponent },
+      { path: 'px-breadcrumbs', component: PxBreadcrumbsComponent }
 
     ]
   }

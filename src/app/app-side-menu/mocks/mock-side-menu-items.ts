@@ -15,7 +15,8 @@ export const SIDE_MENU_ITEMS: List<SideMenuItemModel> = List<SideMenuItemModel>(
       { label: 'Px Date Time Picker', id: 'px-datetime-picker' },
       { label: 'Px Datatable', id: 'px-datatable' },
       { label: 'Px Tooltip', id: 'px-tooltip' },
-      { label: 'Px Branding Bar', id: 'px-branding-bar' }
+      { label: 'Px Branding Bar', id: 'px-branding-bar' },
+      { label: 'Px Breadcrumbs', id: 'px-breadcrumbs' }
     ]
   },
   { label: 'Heroes', id: 'heroes', icon: 'px-fea:products' }

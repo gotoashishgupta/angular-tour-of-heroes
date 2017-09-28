@@ -1,0 +1,15 @@
+<px-breadcrumbs [items]="breadcrumbsGraph" [(selectedRoute)]="selectedRoute" search-mode emitChanges>
+</px-breadcrumbs>
+
+<div style="color: red;">
+  Change breadcrumb doesn't get reflected in selectedRoute but throws error
+  <pre>
+    The following item could not be found in the items graph: {{'{}'}}
+</pre> source of which is buggy implementation of _dropdownTap function event.target.selected & evt.target.items points to wrong
+  item
+
+</div>
+
+<div>
+  Currently selected route is:<br/> {{selectedRoute | json}}
+</div>
