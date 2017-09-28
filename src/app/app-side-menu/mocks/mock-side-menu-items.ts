@@ -9,6 +9,7 @@ export const SIDE_MENU_ITEMS: List<SideMenuItemModel> = List<SideMenuItemModel>(
     label: 'Px Components', id: 'px-components', icon: 'px-fea:templates',
     children: [
       { label: 'Px Accordion', id: 'px-accordion' },
+      { label: 'Px Alert Message', id: 'px-alert-message' },
       { label: 'Px Tabs', id: 'px-tabs' },
       { label: 'Px App Nav', id: 'px-app-nav' },
       { label: 'Px Date Time Picker', id: 'px-datetime-picker' },

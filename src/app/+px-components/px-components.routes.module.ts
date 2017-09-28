@@ -8,6 +8,7 @@ import { PxDatetimePickerComponent } from './px-datetime-picker';
 import { PxTooltipComponent } from './px-tooltip';
 import { PxDataTableComponent } from './px-data-table';
 import { PxAccordionComponent } from './px-accordion';
+import { PxAlertMessageComponent } from './px-alert-message';
 
 
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
       { path: 'px-app-nav', component: PxAppNavComponent },
       { path: 'px-datetime-picker', component: PxDatetimePickerComponent },
       { path: 'px-datatable', component: PxDataTableComponent },
+      { path: 'px-alert-message', component: PxAlertMessageComponent },
       { path: 'px-tooltip', component: PxTooltipComponent }
+
     ]
   }
 ];
