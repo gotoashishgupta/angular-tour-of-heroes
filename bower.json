@@ -44,6 +44,6 @@
     "px-accordion": "https://github.build.ge.com/212591749/px-accordion.git#728d0be",
     "px-alert-message": "^1.1.1",
     "px-branding-bar": "^1.0.6",
-    "px-breadcrumbs": "^1.0.6"
+    "px-breadcrumbs": "https://github.build.ge.com/212591749/px-breadcrumbs.git#f6f42dd"
   }
 }
