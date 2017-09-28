@@ -18,6 +18,7 @@ import { PxDatetimePickerComponent } from './px-datetime-picker';
 import { PxTooltipComponent } from './px-tooltip';
 import { PxDataTableComponent } from './px-data-table';
 import { PxAccordionComponent } from './px-accordion';
+import { PxAlertMessageComponent } from './px-alert-message';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { PxAccordionComponent } from './px-accordion';
     PxDatetimePickerComponent,
     PxTooltipComponent,
     PxDataTableComponent,
+    PxAlertMessageComponent,
     PxAccordionComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
