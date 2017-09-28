@@ -20,7 +20,7 @@ import { PxDataTableComponent } from './px-data-table';
 import { PxAccordionComponent } from './px-accordion';
 import { PxAlertMessageComponent } from './px-alert-message';
 import { PxBrandingBarComponent } from './px-branding-bar';
-
+import { PxBreadcrumbsComponent } from './px-breadcrumbs';
 
 
 @NgModule({
@@ -44,6 +44,7 @@ import { PxBrandingBarComponent } from './px-branding-bar';
     PxDataTableComponent,
     PxAlertMessageComponent,
     PxBrandingBarComponent,
+    PxBreadcrumbsComponent,
     PxAccordionComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
