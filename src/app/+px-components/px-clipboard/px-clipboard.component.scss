@@ -1,0 +1,23 @@
+:host {
+  width: 100%;
+
+  & px-clipboard {
+    position: relative;
+    width: inherit;
+    display: block;
+    background: rgba(0, 0, 0, 0.1);
+
+    & .text-input {
+      width: calc(100% - 5px);
+    }
+
+    &[data-clipboard-text]::before {
+      content: attr(data-clipboard-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: calc(100% - 29px);
+      background: rgba(0, 255, 0, 0.1);
+    }
+  }
+}

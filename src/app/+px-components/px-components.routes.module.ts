@@ -11,6 +11,7 @@ import { PxAccordionComponent } from './px-accordion';
 import { PxAlertMessageComponent } from './px-alert-message';
 import { PxBrandingBarComponent } from './px-branding-bar';
 import { PxBreadcrumbsComponent } from './px-breadcrumbs';
+import { PxClipboardComponent } from './px-clipboard';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'px-accordion', component: PxAccordionComponent },
       { path: 'px-tabs', component: PxTabsComponent },
       { path: 'px-app-nav', component: PxAppNavComponent },
+      { path: 'px-clipboard', component: PxClipboardComponent },
       { path: 'px-datetime-picker', component: PxDatetimePickerComponent },
       { path: 'px-datatable', component: PxDataTableComponent },
       { path: 'px-alert-message', component: PxAlertMessageComponent },

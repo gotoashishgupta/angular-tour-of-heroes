@@ -27,7 +27,7 @@
     "tests"
   ],
   "resolutions": {
-    "webcomponentsjs": "^1.0.13",
+    "webcomponentsjs": "^v1.0.2",
     "polymer": "^2.1.0"
   },
   "dependencies": {
@@ -44,6 +44,7 @@
     "px-accordion": "https://github.build.ge.com/212591749/px-accordion.git#728d0be",
     "px-alert-message": "^1.1.1",
     "px-branding-bar": "^1.0.6",
-    "px-breadcrumbs": "https://github.build.ge.com/212591749/px-breadcrumbs.git#f6f42dd"
+    "px-breadcrumbs": "https://github.build.ge.com/212591749/px-breadcrumbs.git#f6f42dd",
+    "px-clipboard": "https://github.build.ge.com/212591749/px-clipboard.git#c300693"
   }
 }

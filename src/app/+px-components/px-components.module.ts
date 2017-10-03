@@ -21,7 +21,7 @@ import { PxAccordionComponent } from './px-accordion';
 import { PxAlertMessageComponent } from './px-alert-message';
 import { PxBrandingBarComponent } from './px-branding-bar';
 import { PxBreadcrumbsComponent } from './px-breadcrumbs';
-
+import { PxClipboardComponent } from './px-clipboard';
 
 @NgModule({
   imports: [
@@ -45,6 +45,7 @@ import { PxBreadcrumbsComponent } from './px-breadcrumbs';
     PxAlertMessageComponent,
     PxBrandingBarComponent,
     PxBreadcrumbsComponent,
+    PxClipboardComponent,
     PxAccordionComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
