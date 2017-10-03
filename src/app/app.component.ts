@@ -12,7 +12,7 @@ import 'rxjs/add/operator/pluck';
 })
 export class AppComponent implements OnInit {
 
-  public title = 'Angular Polymer Demo App';
+  public title = 'Predix UI With ng4 & polymer2';
 
   constructor(private _router: Router, private _activatedRoute: ActivatedRoute) { }
   public ngOnInit() {
