@@ -12,6 +12,7 @@ export const SIDE_MENU_ITEMS: List<SideMenuItemModel> = List<SideMenuItemModel>(
       { label: 'Px Alert Message', id: 'px-alert-message' },
       { label: 'Px Tabs', id: 'px-tabs' },
       { label: 'Px App Nav', id: 'px-app-nav' },
+      { label: 'Px Clipboard', id: 'px-clipboard' },
       { label: 'Px Date Time Picker', id: 'px-datetime-picker' },
       { label: 'Px Datatable', id: 'px-datatable' },
       { label: 'Px Tooltip', id: 'px-tooltip' },
