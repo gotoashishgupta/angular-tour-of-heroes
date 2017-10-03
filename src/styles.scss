@@ -40,6 +40,14 @@
   box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
 
+@media print {
+  a:after {
+    content: " [" attr(href) "] ";
+    font-size: 0.8rem;
+    font-weight: normal;
+  }
+}
+
 /* Trumps */
 @import "px-spacing-responsive-design/_trumps.spacing-responsive.scss";
 @import "px-widths-responsive-design/_trumps.widths-responsive.scss";
