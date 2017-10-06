@@ -1,14 +1,16 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 import { breadcrumbsGraph } from './mocks/breadcrumbs-graph.mock';
 import { IBreadcrumbsGraph } from './models/breadcrumbs-graph.model';
 import { PolymerChanges, OnPolymerChange } from '@codebakery/origami';
+import { logMethod } from '../../shared/decorators/log-method.decorator';
 
 @Component({
   selector: 'app-px-breadcrumbs',
   templateUrl: './px-breadcrumbs.component.html',
-  styleUrls: ['./px-breadcrumbs.component.scss']
+  styleUrls: ['./px-breadcrumbs.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PxBreadcrumbsComponent implements OnInit, OnPolymerChange {
+export class PxBreadcrumbsComponent implements OnInit, OnPolymerChange, OnChanges {
 
   public breadcrumbsGraph: Array<IBreadcrumbsGraph>;
 
@@ -21,8 +23,14 @@ export class PxBreadcrumbsComponent implements OnInit, OnPolymerChange {
     this.selectedRoute = ['North America', 'United States of America', 'California', 'San Ramon', 'Crow Canyon Gardens'];
   }
 
-  public onPolymerChange(property, $event, el) {
+  @logMethod()
+  public onPolymerChange(property, $event, newValue) {
+
+    console.log('---> onPolymerChange', this['__METHOD__']);
     this._changeDectectorRef.detectChanges();
   }
 
+  @logMethod()
+  public ngOnChanges() {
+  }
 }
