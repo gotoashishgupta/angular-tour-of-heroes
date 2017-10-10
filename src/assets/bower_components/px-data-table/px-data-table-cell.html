@@ -42,12 +42,12 @@
               disable-clear>
             </px-dropdown>
           </span>
-        </div>
-      </template>
-      <!-- in place editing template -->
-      <template is="dom-if" if="{{_isEqual(cellType,'string')}}">
-        <div class="flex cell--container">
-          <span role="gridcell" id="cellvalue" class$="{{_getValueCellClass(_editing, cellValidation.passedValidation, cellDisplayValue)}}">{{cellDisplayValue}}
+    </div>
+  </template>
+  <!-- in place editing template -->
+  <template is="dom-if" if="{{_isEqual(cellType,'string')}}">
+    <div class="flex cell--container">
+      <span role="gridcell" id="cellvalue" class$="{{_getValueCellClass(_editing, cellValidation.passedValidation, cellDisplayValue)}}">{{cellDisplayValue}}
             <template is="dom-if" if="{{cellDisplayTooltip}}">
               <px-tooltip
                 orientation="top"
@@ -57,32 +57,47 @@
               </px-tooltip>
             </template>
           </span>
-        </div>
-      </template>
-      <!-- icon template -->
-      <template is="dom-if" if="{{cellEditable}}">
-        <div class="fa fa-fw cell-status--container">
-          <px-icon id="editicon" role="button" aria-label="Click to edit cell" class$="{{_getCellIconClass(_showEditIcon, _editing, cellValidation.passedValidation)}}"
-            icon="{{_getCellIcon(_showEditIcon, _editing, cellValidation.passedValidation)}}">
-          </px-icon>
-          <template is="dom-if" if="{{!cellValidation.passedValidation}}">
-            <px-tooltip
-              class="tooltip-font"
-              smart-orientation
-              orientation="top"
-              tooltip-message="{{cellValidation.failedValidationErrorMessage}}">
-            </px-tooltip>
-          </template>
-        </div>
-      </template>
-      <!-- icon template -->
-    </span>
-    <!-- html content -->
-    <template is="dom-if" if="{{_isEqual(cellType,'html')}}">
-      <aha-html-echo role="gridcell" html="{{cellDisplayValue}}"></aha-html-echo>
-    </template>
+    </div>
   </template>
-</template>
+  <!-- toggle for boolean values -->
+  <template is="dom-if" if="{{_isEqual(cellType, 'toggle')}}">
+    <div class="flex__item cell--container">
+      <span role="gridcell">
+          <!-- <px-dropdown
+            class="px-dropdown-content"
+            selected="{{cellValue}}"
+            select-by="val"
+            display-value="{{cellDisplayValue}}"
+            on-px-dropdown-selection-changed="saveCell"
+            allow-outside-scroll="true"
+            button-style="bare"
+            items="{{dropdownItems}}"
+            disable-clear>
+          </px-dropdown> -->
+          {{cellValue}}<px-toggle checked="{{cellValue}}" value="{{cellValue}}" on-checked-changed="saveCell"></px-toggle>
+        </span>
+    </div>
+  </template>
+  <!-- icon template -->
+  <template is="dom-if" if="{{cellEditable}}">
+    <div class="fa fa-fw cell-status--container">
+      <px-icon id="editicon" role="button" aria-label="Click to edit cell" class$="{{_getCellIconClass(_showEditIcon, _editing, cellValidation.passedValidation)}}"
+        icon="{{_getCellIcon(_showEditIcon, _editing, cellValidation.passedValidation)}}">
+      </px-icon>
+      <template is="dom-if" if="{{!cellValidation.passedValidation}}">
+        <px-tooltip class="tooltip-font" smart-orientation orientation="top" tooltip-message="{{cellValidation.failedValidationErrorMessage}}">
+        </px-tooltip>
+      </template>
+    </div>
+  </template>
+  <!-- icon template -->
+  </span>
+  <!-- html content -->
+  <template is="dom-if" if="{{_isEqual(cellType,'html')}}">
+    <aha-html-echo role="gridcell" html="{{cellDisplayValue}}"></aha-html-echo>
+  </template>
+  </template>
+  </template>
   <script>
     Polymer({
       is: 'px-data-table-cell',
@@ -106,8 +121,8 @@
         },
         cellValidation: {
           type: Object,
-          value: function(){
-            return {passedValidation: true};
+          value: function () {
+            return { passedValidation: true };
           },
           notify: true
         },
@@ -120,40 +135,40 @@
           value: false,
           notify: true
         },
-        cellEditable:{
+        cellEditable: {
           type: Boolean,
           value: false
         },
-        dropdownItems:{
+        dropdownItems: {
           type: Array,
-          value: function(){return [];},
+          value: function () { return []; },
           notify: true,
           observer: '_setDropdownItem'
         },
-        cellSelected:{
+        cellSelected: {
           type: Boolean,
           value: false,
           observer: "_cellSelected"
         },
-        cellHighlighted:{
+        cellHighlighted: {
           type: Object,
-          value: function(){
-            return {value: false};
+          value: function () {
+            return { value: false };
           }
         },
-        rowHighlighted:{
+        rowHighlighted: {
           type: Object,
-          value: function(){
-            return {value: false};
+          value: function () {
+            return { value: false };
           }
         },
-        _showEditIcon:{
+        _showEditIcon: {
           type: Boolean,
           value: false
         },
-        _editTimeout:{
+        _editTimeout: {
           type: Object,
-          value: function(){
+          value: function () {
             return {};
           }
         },
@@ -163,7 +178,7 @@
         },
         _cellAnchor: {
           type: HTMLElement,
-          value: function() { return null;}
+          value: function () { return null; }
         }
       },
       listeners: {
@@ -172,15 +187,15 @@
       observers: [
         '_updateHighlight(cellHighlighted.value, rowHighlighted.value)'
       ],
-      detached: function() {
+      detached: function () {
         //make sure we remove the tooltip in case it's currently showing
         var tooltip = this.$$('px-tooltip');
-        if(tooltip) {
+        if (tooltip) {
           tooltip.remove();
         }
       },
-      _cellDisplayValueChanged: function(newValue){
-        if(this.$$('.cell--value') !== undefined && this.$$('.cell--value') !== null){
+      _cellDisplayValueChanged: function (newValue) {
+        if (this.$$('.cell--value') !== undefined && this.$$('.cell--value') !== null) {
           if (newValue !== undefined && newValue !== '') {
             this.$$('.cell--value').classList.remove('empty');
           } else {
@@ -188,17 +203,17 @@
           }
         }
       },
-      _cellValueChanged: function(evt){
+      _cellValueChanged: function (evt) {
         clearTimeout(this._editTimeout);
-        this._editTimeout = setTimeout(function(){
-          this.fire('validate', {newValue: this.$$('#celleditinput').value});
+        this._editTimeout = setTimeout(function () {
+          this.fire('validate', { newValue: this.$$('#celleditinput').value });
         }.bind(this), 300);
       },
-      onCellHovered: function(evt){
+      onCellHovered: function (evt) {
         this.set('_showEditIcon', this.cellEditable);
       },
-      onCellUnHovered: function(evt){
-        this.set('_showEditIcon',false);
+      onCellUnHovered: function (evt) {
+        this.set('_showEditIcon', false);
       },
       /*
       * This method checks whether the two parameters passed in are equal.
@@ -208,13 +223,13 @@
       * @param source String / Number
       * @param target String / Number
       */
-      _isEqual: function(source, target) {
+      _isEqual: function (source, target) {
         if (!Array.isArray(target) || typeof target !== 'object') {
           return source === target;
         }
         return;
       },
-      isNotEqual: function(source, target) {
+      isNotEqual: function (source, target) {
         if (!Array.isArray(target) || typeof target !== 'object') {
           return source !== target;
         }
@@ -228,11 +243,11 @@
       * @param source String / Number
       * @param arr Array
       */
-      _areAnyEqual: function(source, arr) {
+      _areAnyEqual: function (source, arr) {
         if (Array.isArray(arr)) {
           var flag = false,
-              i=0,
-              len = arr.length;
+            i = 0,
+            len = arr.length;
           for (; i < len; i++) {
             if (source === arr[i]) {
               return true;
@@ -245,80 +260,82 @@
         }
 
       },
-      _getReaderClass: function() {
+      _getReaderClass: function () {
         var datum = this.cellValue,
-            classList = [];
+          classList = [];
 
-        classList = (this.cellType ==='dropdown') ? ['flex', 'ddviewing'] : ['flex', 'viewing'];
+        classList = (this.cellType === 'dropdown') ? ['flex', 'ddviewing'] : ['flex', 'viewing'];
 
-        if(datum === null || datum === undefined || typeof datum === 'string' && datum.trim().length === 0) {
+        if (datum === null || datum === undefined || typeof datum === 'string' && datum.trim().length === 0) {
           classList.push('empty');
         }
         return classList.join(' ');
       },
-      ready: function(){
+      ready: function () {
         this.addEventListener('exit-edit-mode', this._exitEditMode.bind(this));
         this.addEventListener('undo-edit-mode', this._undoEditMode.bind(this));
         this.addEventListener('setDropdownItem', this._setDropdownItem),
-        this.toggleClass('td', true);
+          this.toggleClass('td', true);
         this.toggleClass('aha-' + this.columnName.replace(/\s/g, "-") + '-td', true);
       },
-      attached: function() {
+      attached: function () {
         this.toggleClass('td__dropdown', this._dropdownItem);
         this._cellAnchor = this;
       },
-      _setDropdownItem: function() {
+      _setDropdownItem: function () {
         //we check if there are any items in dropdownItems, and if there are, this is a dropdown cell.
         this.set('_dropdownItem', (this.dropdownItems.length > 0));
       },
-      _exitEditMode: function(){
+      _exitEditMode: function () {
         document.activeElement.blur();
       },
-      _undoEditMode: function(evt){
+      _undoEditMode: function (evt) {
         this.set('_cancelSave', true);
         document.activeElement.blur();
       },
-      editCell: function(){
+      editCell: function () {
         var editCell = this.$$(".cell--edit"),
-            valueCell = this.$$(".cell--value");
-        if (this.cellEditable && this.cellType !=='dropdown' && this.cellType !== 'html') {
+          valueCell = this.$$(".cell--value");
+        if (this.cellEditable && this.cellType !== 'dropdown' && this.cellType !== 'html') {
           this.set('_editing', true);
           this.toggleClass('cell__edit', this._editing);
           this.set('_undoValue', this.$$(".cell--value").innerText);
           Polymer.dom(editCell).querySelector('input,select,textarea').focus();
         }
       },
-      saveCell: function(evt){
+      saveCell: function (evt) {
         this._editing = false;
         this.toggleClass('cell__edit', this._editing);
         var value;
-        if(this._cancelSave === true){
+        if (this._cancelSave === true) {
           this.set('_cancelSave', false);
           value = this._undoValue;
           Polymer.dom(this.$$('.cell--edit')).querySelector('input,select,textarea').value = value;
         }
-        else if(this._dropdownItem && evt.detail.selected === true) {
+        else if (this._dropdownItem && evt.detail.selected === true) {
           /* Only get dropdown values for select events, not deselect events */
           value = evt.detail.val;
+        } else if (evt.detail.hasOwnProperty('value')) {
+          value = evt.detail.value;
         }
         else {
           value = evt.target.value;
         }
-        this.fire('save', {newValue: value});
+        this.fire('save', { newValue: value });
       },
-      _getEditCellClass: function(editing){
+      _getEditCellClass: function (editing) {
         var classList = ['cell--edit'];
-        if(!editing){
+        if (!editing) {
           classList.push('hidden');
         }
         return classList.join(' ');
       },
-      _getValueCellClass: function(editing, valid, cellDisplayValue){
+      _getValueCellClass: function (editing, valid, cellDisplayValue) {
         var classList = ['cell--value'];
-        if(editing){
+        if (editing) {
           classList.push('hidden');
         }
-        if (!cellDisplayValue){
+        if (!cellDisplayValue) {
           classList.push('cell--value__empty');
         }
 
@@ -326,9 +343,9 @@
 
         return classList.join(' ');
       },
-      _getCellIcon: function(showEditIcon, editing, valid){
-        if(valid) {
-          if(showEditIcon) {
+      _getCellIcon: function (showEditIcon, editing, valid) {
+        if (valid) {
+          if (showEditIcon) {
             return 'px-utl:edit';
           }
         }
@@ -336,10 +353,10 @@
           return 'px-utl:failure';
         }
       },
-      _getCellIconClass: function(showEditIcon, editing, valid){
-        var classList= ['cell--status--container--icon'];
+      _getCellIconClass: function (showEditIcon, editing, valid) {
+        var classList = ['cell--status--container--icon'];
 
-        if(!valid) {
+        if (!valid) {
           classList.push('cell--value--icon__validation-failed');
         }
         else {
@@ -349,27 +366,27 @@
         }
         return classList.join(' ');
       },
-      _cellSelected: function(selected){
-        if (this.rowHighlighted && this.rowHighlighted.value){
+      _cellSelected: function (selected) {
+        if (this.rowHighlighted && this.rowHighlighted.value) {
           this.toggleClass('cell--value__highlight--selected__row', selected);
         }
-        else if (this.cellHighlighted && this.cellHighlighted.value){
+        else if (this.cellHighlighted && this.cellHighlighted.value) {
           this.toggleClass('cell--value__highlight--selected', selected);
         }
-        else{
+        else {
           this.toggleClass('selected', selected);
         }
       },
-      _updateHighlight: function(cellHighlight, rowHighlight){
+      _updateHighlight: function (cellHighlight, rowHighlight) {
         this._clearHighlight();
-        if(rowHighlight) {
+        if (rowHighlight) {
           this.toggleClass(this.rowHighlighted.highlightClass, rowHighlight);
         }
-        if(cellHighlight){
+        if (cellHighlight) {
           this.toggleClass(this.cellHighlighted.highlightClass, cellHighlight);
         }
       },
-      _clearHighlight: function(){
+      _clearHighlight: function () {
         this.toggleClass('px-data-table-highlight--high', false);
         this.toggleClass('px-data-table-highlight--medium', false);
         this.toggleClass('px-data-table-highlight--low', false);
@@ -408,11 +425,12 @@
         observer: "onHtmlChanged"
       }
     },
-    onHtmlChanged: function() {
+    onHtmlChanged: function () {
       if (this.html === undefined) {
         this.html = "";
       }
       this.innerHTML = this.html;
     }
   });
+
 </script>
