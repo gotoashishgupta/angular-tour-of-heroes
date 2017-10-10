@@ -1,0 +1,11 @@
+<px-data-table [tableData]="demoDatatableItems" page-size="3" #demoDatatable [includeAllColumns]="false" striped show-column-chooser
+  emitChanges [sortable]="true">
+  <px-data-table-column label="First Name" name='first' [editable]="true">
+  </px-data-table-column>
+  <px-data-table-column label="Can Play" name='open' type="toggle">
+  </px-data-table-column>
+  <px-data-table-column name="last" type="dropdown" [editable]="true" [dropdownItems]="meta[0]['dropdownItems']"></px-data-table-column>
+  <px-data-table-column name="color" type="dropdown" [editable]="true" [dropdownItems]="meta[1]['dropdownItems']"></px-data-table-column>
+  <px-data-table-column name="date" [sortable]="true" [sort-function-name]="sortTable"></px-data-table-column>
+  <px-data-table-column name="actions" type="html" (click)="callOnAction($event)"></px-data-table-column>
+</px-data-table>
