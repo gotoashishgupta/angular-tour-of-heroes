@@ -45,6 +45,7 @@
     "px-alert-message": "^1.1.1",
     "px-branding-bar": "^1.0.6",
     "px-breadcrumbs": "https://github.build.ge.com/212591749/px-breadcrumbs.git#f6f42dd",
-    "px-clipboard": "https://github.build.ge.com/212591749/px-clipboard.git#c300693"
+    "px-clipboard": "https://github.build.ge.com/212591749/px-clipboard.git#c300693",
+    "px-toggle": "^2.0.3"
   }
 }
