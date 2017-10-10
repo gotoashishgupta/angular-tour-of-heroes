@@ -25,6 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 import { SideMenuComponent } from './app-side-menu';
+import { DemoPxDatatableComponent } from './demo-px-datatable';
 
 @NgModule({
   // array contains a list of application components, pipes, and directives that belong to the module
@@ -34,7 +35,8 @@ import { SideMenuComponent } from './app-side-menu';
     HeroesComponent,
     HeroDetailComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    DemoPxDatatableComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

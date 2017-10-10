@@ -7,6 +7,7 @@
 
 # dependencies
 bower_components
+!bower_components/px-data-table
 /node_modules
 
 # IDEs and editors
