@@ -1,13 +1,10 @@
-# Predix UI Components in Polymer2 & ng4
-This project checks the readiness of Predix UI components in angular4 polymer2 environment
-
 # Build Project
 ```
-mkdir -p ~/workspace/predix-ui-with-ng4-polymer2
+mkdir -p ~/workspace/angular-tour-of-heroes
 
-git clone git@github.build.ge.com:212591749/predix-ui-with-ng4-polymer2.git ~/workspace/predix-ui-with-ng4-polymer2
+git clone https://github.com/gotoashishgupta/angular-tour-of-heroes.git ~/workspace/angular-tour-of-heroes
 
-cd ~/workspace/predix-ui-with-ng4-polymer2
+cd ~/workspace/angular-tour-of-heroes
 
 yarn install
 ```
