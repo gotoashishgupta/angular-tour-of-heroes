@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Renderer2, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, ViewChild, AfterViewInit, Optional } from '@angular/core';
 
 import { logMethod } from '../shared/decorators/log-method.decorator';
 
@@ -39,6 +39,16 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
   @ViewChild('demoDatatable')
   public demoDatatableRef: ElementRef;
 
+  private _transformToInput = R.map(R.pipe(
+    R.evolve(
+      {
+        first: R.toUpper,
+        // open: this.provideToggleView
+      }
+    ),
+    R.converge(R.assoc('actions'), [this.provideRowActions, R.identity])
+  ));
+
 
   public meta = [
     {
@@ -68,15 +78,7 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
 
   public ngOnInit() {
 
-    const _transformToInput = R.map(R.pipe(
-      R.evolve(
-        {
-          first: R.toUpper,
-          // open: this.provideToggleView
-        }
-      ),
-      R.converge(R.assoc('actions'), [this.provideRowActions, R.identity])
-    ));
+
     // const _transformToInput = R.compose(R.map(R.evolve({
     //   first: R.toUpper,
     //   open: this.provideToggleView
@@ -84,7 +86,7 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
 
     this._demoPxDatatableService.datatableItems$
       .debug('Demo datatable before transform')
-      .map(_transformToInput)
+      .map(this._transformToInput)
       .debug('Demo datatable after transform')
       .subscribe((res) => {
         this.demoDatatableItems = res;
@@ -104,6 +106,9 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
         };
       })
       .debug('just need action with row details')
+      .map(x => {
+        return this.liftedObject(['row:row.row', 'row.actions:action'], x);
+      })
       .subscribe(console.log.bind(console));
 
 
@@ -111,6 +116,29 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
     const tableDataChange$ = Observable.fromEvent(this.demoDatatableRef.nativeElement, 'table-data-changed');
     tableDataChange$.debug('table-data-changed').subscribe(console.log.bind(console));
 
+  }
+
+  public liftedObject(paths, @Optional() o) {
+    const log = (...x) => {
+      return R.tap(console.log.bind(console, '--->', ...x));
+    };
+
+    const sanitizedPairs = R.pipe(
+      R.split(':'),
+      R.converge(R.pair, [R.head, R.last]),
+      R.map(R.trim)
+    );
+    const dotPath = R.useWith(R.path, [R.split('.')]);
+    const propsDotPath = R.useWith(R.ap, [R.map(dotPath), R.of]);
+
+    const newPath = R.compose(R.map(R.split('.')), R.pluck(0), R.map(sanitizedPairs));
+    const oldDotPath = R.compose(R.pluck(1), R.map(sanitizedPairs));
+
+    const newPairs = R.converge(R.zip, [newPath, R.uncurryN(2, R.compose(propsDotPath, oldDotPath))]);
+
+    const fromDeepPairs = R.reduce((acc, xs) => R.assocPath(R.head(xs), R.last(xs), acc), {});
+
+    return fromDeepPairs(newPairs(paths)(o));
   }
 
   @logMethod()
@@ -152,6 +180,11 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
       <button
         onclick="Polymer.dom(this).parentNode.fire('ng-px-row-action', { action: 'refresh' })">
         Refresh
+      </button>
+
+      <button
+        onclick="Polymer.dom(this).parentNode.fire('ng-px-row-action', { action: 'duplicate' })">
+        Duplicate
       </button>
      `;
   }

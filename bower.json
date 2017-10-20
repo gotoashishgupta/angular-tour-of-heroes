@@ -28,24 +28,25 @@
   ],
   "resolutions": {
     "webcomponentsjs": "^v1.0.2",
-    "polymer": "^2.1.0"
+    "polymer": "^2.1.0",
+    "px-app-nav": "bbb6074c04d1813"
   },
   "dependencies": {
-    "px-app-nav": "https://github.build.ge.com/212591749/px-app-nav.git#^2.0.9-alpha.0.1",
+    "px-app-nav": "https://github.com/gotoashishgupta/px-app-nav.git#bbb6074c04d1813",
     "px-starter-kit-design": "^1.0.1",
     "paper-input": "^2.0.2",
     "paper-button": "^2.0.0",
     "polymer": "^2.1.0",
     "px-theme": "^3.0.15",
-    "px-tabs": "https://github.build.ge.com/212591749/px-tabs.git#08ad767",
+    "px-tabs": "https://github.com/gotoashishgupta/px-tabs.git#08ad767",
     "px-datetime-picker": "^1.0.4",
     "px-tooltip": "^1.0.5",
     "px-data-table": "^4.0.10",
-    "px-accordion": "https://github.build.ge.com/212591749/px-accordion.git#728d0be",
+    "px-accordion": "https://github.com/gotoashishgupta/px-accordion.git#728d0be",
     "px-alert-message": "^1.1.1",
     "px-branding-bar": "^1.0.6",
-    "px-breadcrumbs": "https://github.build.ge.com/212591749/px-breadcrumbs.git#f6f42dd",
-    "px-clipboard": "https://github.build.ge.com/212591749/px-clipboard.git#c300693",
+    "px-breadcrumbs": "https://github.com/gotoashishgupta/px-breadcrumbs.git#0cca0c2",
+    "px-clipboard": "https://github.com/gotoashishgupta/px-clipboard.git#1ed344d",
     "px-toggle": "^2.0.3"
   }
 }
