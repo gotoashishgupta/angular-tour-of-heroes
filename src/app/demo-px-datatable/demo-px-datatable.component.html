@@ -1,6 +1,6 @@
 <px-data-table [tableData]="demoDatatableItems" page-size="3" #demoDatatable [includeAllColumns]="false" striped show-column-chooser
   emitChanges [sortable]="true">
-  <px-data-table-column label="First Name" name='first' [editable]="true">
+  <px-data-table-column label="First Name" name='first' [editable]="true" type="string">
   </px-data-table-column>
   <px-data-table-column label="Can Play" name='open' type="toggle">
   </px-data-table-column>
@@ -9,3 +9,10 @@
   <px-data-table-column name="date" [sortable]="true" [sort-function-name]="sortTable"></px-data-table-column>
   <px-data-table-column name="actions" type="html" (click)="callOnAction($event)"></px-data-table-column>
 </px-data-table>
+
+<div>
+  <h1>Action: {{rowAction ? 'No Action taken yet' : rowAction}}</h1>
+  <pre>{{rowOldData | json}}</pre>
+  <pre>{{rowNewData | json}}</pre>
+
+</div>
