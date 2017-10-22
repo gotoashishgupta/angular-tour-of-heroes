@@ -1,1 +1,1 @@
-export * from './px-components.module';
+export { PxComponentsModule } from './px-components.module';

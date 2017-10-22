@@ -11,7 +11,7 @@ import { SideMenuItemModel } from './models/side-menu-item.model';
 
 @Injectable()
 export class SideMenuService {
-  private _sideMenuApiEndpoint = 'api/sideMenuItems';
+  private _sideMenuApiEndpoint = '/api/sideMenuItems';
   constructor(private http: Http) { }
 
   public get sideMenuItems$():  Observable<List<SideMenuItemModel>> {

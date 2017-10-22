@@ -2,11 +2,14 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "module": "commonjs",
     "types": [
       "node"
-    ]
+    ],
+    "paths": {
+      "@codebakery/*": ["../node_modules/@codebakery/*"]
+    }
   },
   "exclude": [
     "test.ts",

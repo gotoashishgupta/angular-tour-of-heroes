@@ -9,7 +9,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-
     "start:dynamic": "npm run build:dynamic && npm run serve:dynamic",
     "start:static": "npm run build:static && npm run serve:static",
     "build:client-and-server-bundles": "ng build --prod && ng build --prod --app 1 --output-hashing=false",
