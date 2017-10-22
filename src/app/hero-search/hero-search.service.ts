@@ -12,7 +12,7 @@ import { HEROES } from '../shared/mocks/mock-heroes';
 
 @Injectable()
 export class HeroSearchService {
-  private _heroesApiEndpoint = 'api/heroes';
+  private _heroesApiEndpoint = '/api/heroes';
   constructor(private http: Http) { }
   public nameContains(term: string): Observable<List<Hero>> {
     return this.http

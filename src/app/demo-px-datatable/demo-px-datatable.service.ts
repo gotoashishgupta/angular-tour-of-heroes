@@ -10,7 +10,7 @@ import { List } from 'immutable';
 
 @Injectable()
 export class DemoPxDatatableService {
-  private _datatableApiEndpoint = 'api/datatableItems';
+  private _datatableApiEndpoint = '/api/datatableItems';
   constructor(private http: Http) { }
 
   public get datatableItems$(): Observable<List<{}>> {

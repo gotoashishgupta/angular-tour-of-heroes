@@ -10,7 +10,7 @@ import { HEROES } from '../mocks/mock-heroes';
 @Injectable()
 export class HeroService {
 
-  private _heroesApiEndpoint = 'api/heroes';
+  private _heroesApiEndpoint = '/api/heroes';
   private _headers = new Headers({ 'Content-Type': 'application/json' });
   public constructor(private http: Http) { }
   public getHeroes(): Promise<List<Hero>> {
