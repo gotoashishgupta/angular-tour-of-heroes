@@ -9,14 +9,17 @@ import { environment } from './environments/environment';
 if (environment.production) {
   enableProdMode();
 }
-webcomponentsReady().then(() => {
-  console.log('Bootstraping AppModule');
-  platformBrowserDynamic().bootstrapModule(AppModule, {
-    enableLegacyTemplate: false
+
+document.addEventListener('DOMContentLoaded', () => {
+  webcomponentsReady().then(() => {
+    console.log('Bootstraping AppModule');
+    platformBrowserDynamic().bootstrapModule(AppModule, {
+      enableLegacyTemplate: false
+    });
+  }).catch(error => {
+    // No WebComponent support and webcomponentsjs is not loaded
+    console.error(error);
   });
-}).catch(error => {
-  // No WebComponent support and webcomponentsjs is not loaded
-  console.error(error);
 });
 
 // HMR support

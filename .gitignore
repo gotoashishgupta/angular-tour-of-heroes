@@ -1,5 +1,5 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
-
+README.md
 # compiled output
 /dist
 /tmp
@@ -10,6 +10,7 @@ bower_components
 !bower_components/px-data-table
 !bower_components/px-theme/px-theme-styles.html
 /node_modules
+!node_modules/\@codebakery/origami/\@codebakery/origami.es5.js
 
 # IDEs and editors
 /.idea

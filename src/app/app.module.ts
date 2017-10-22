@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // in memory api stub
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -27,6 +27,9 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { SideMenuComponent } from './app-side-menu';
 import { DemoPxDatatableComponent } from './demo-px-datatable';
 
+
+import { UniversalInterceptor } from './app.universal.interceptor';
+
 @NgModule({
   // array contains a list of application components, pipes, and directives that belong to the module
   declarations: [
@@ -40,9 +43,9 @@ import { DemoPxDatatableComponent } from './demo-px-datatable';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'anyRandomStringUnique4ThisPageId' }),
     FormsModule,
-    HttpModule,
+    HttpClientModule,
 
     SharedModule.forRoot(),
 
@@ -57,6 +60,12 @@ import { DemoPxDatatableComponent } from './demo-px-datatable';
     PaperElementsModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UniversalInterceptor,
+      /* Multi is important or you will delete all the other interceptors */
+      multi: true
+    },
     HeroService
   ],
   bootstrap: [AppComponent]

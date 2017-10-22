@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": ".",
-    "module": "es2015",
+    "module": "commonjs",
     "types": [
       "node"
     ],
@@ -16,6 +16,7 @@
     "**/*.spec.ts"
   ],
   "angularCompilerOptions": {
+    "entryModule": "./app/app.server.module#AppServerModule",
     "enableLegacyTemplate": false
   }
 }
