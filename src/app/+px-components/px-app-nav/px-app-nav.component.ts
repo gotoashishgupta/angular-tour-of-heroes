@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PxAppNavComponent implements OnInit {
   public items;
+  public selectedRoute;
   constructor() { }
 
   public ngOnInit() {
