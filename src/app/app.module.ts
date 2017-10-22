@@ -40,7 +40,7 @@ import { DemoPxDatatableComponent } from './demo-px-datatable';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'anyRandomStringUnique4ThisPageId'}),
     FormsModule,
     HttpModule,
 

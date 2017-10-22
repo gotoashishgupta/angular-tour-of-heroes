@@ -2,20 +2,18 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "baseUrl": ".",
-    "module": "es2015",
+    "baseUrl": "./",
+    "module": "commonjs",
     "types": [
       "node"
-    ],
-    "paths": {
-      "@codebakery/*": ["../node_modules/@codebakery/*"]
-    }
+    ]
   },
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
   ],
   "angularCompilerOptions": {
+    "entryModule": "./app/app.server.module#AppServerModule",
     "enableLegacyTemplate": false
   }
 }

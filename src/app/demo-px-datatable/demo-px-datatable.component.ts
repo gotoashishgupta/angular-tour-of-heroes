@@ -35,6 +35,9 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
 
   public demoDatatableItems$: Observable<List<{}>>;
   public demoDatatableItems;
+  public rowAction;
+  public rowNewData;
+  public rowOldData;
 
   @ViewChild('demoDatatable')
   public demoDatatableRef: ElementRef;
