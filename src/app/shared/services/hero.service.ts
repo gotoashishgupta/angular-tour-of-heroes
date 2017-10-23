@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -11,25 +11,25 @@ import { HEROES } from '../mocks/mock-heroes';
 export class HeroService {
 
   private _heroesApiEndpoint = '/api/heroes';
-  private _headers = new Headers({ 'Content-Type': 'application/json' });
-  public constructor(private http: Http) { }
+  private _headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  public constructor(private http: HttpClient) { }
   public getHeroes(): Promise<List<Hero>> {
     return this.http.get(this._heroesApiEndpoint)
       .toPromise()
-      .then(response => response.json().data as List<Hero>)
+      .then(response => response as List<Hero>)
       .catch(this._handleError);
   }
   public getHero(id: number): Promise<Hero> {
     const _url = `${this._heroesApiEndpoint}/${id}`;
     return this.http.get(_url)
       .toPromise()
-      .then(response => response.json().data as Hero)
+      .then(response => response as Hero)
       .catch(this._handleError);
   }
 
   public update(hero: Hero): Promise<Hero> {
     const _url = `${this._heroesApiEndpoint}/${hero.id}`;
-    return this.http.put(_url, JSON.stringify(hero), { headers: this._headers })
+    return this.http.put(_url, hero, { headers: this._headers })
       .toPromise()
       .then(() => hero)
       .catch(this._handleError);
@@ -37,9 +37,9 @@ export class HeroService {
 
   public create(name: string): Promise<Hero> {
     return this.http
-      .post(this._heroesApiEndpoint, JSON.stringify({ name }), { headers: this._headers })
+      .post(this._heroesApiEndpoint, { name }, { headers: this._headers })
       .toPromise()
-      .then((res) => res.json().data as Hero)
+      .then((res) => res as Hero)
       .catch(this._handleError);
   }
 

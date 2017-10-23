@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -13,12 +13,12 @@ import { HEROES } from '../shared/mocks/mock-heroes';
 @Injectable()
 export class HeroSearchService {
   private _heroesApiEndpoint = '/api/heroes';
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
   public nameContains(term: string): Observable<List<Hero>> {
     return this.http
       .get(`${this._heroesApiEndpoint}?name=${term}`)
       .debug('Names which container')
-      .map(res => res.json().data as List<Hero>)
+      .map(res => res as List<Hero>)
       .share();
   }
 }
