@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/share';
+import '../../rxjs-debug';
 
 import { List } from 'immutable';
 import { Hero } from '../models/hero';
@@ -15,6 +18,7 @@ export class HeroService {
   public constructor(private http: HttpClient) { }
   public getHeroes(): Promise<List<Hero>> {
     return this.http.get(this._heroesApiEndpoint)
+      .debug(`get HEROES ${this._heroesApiEndpoint}`)
       .toPromise()
       .then(response => response as List<Hero>)
       .catch(this._handleError);
@@ -22,6 +26,7 @@ export class HeroService {
   public getHero(id: number): Promise<Hero> {
     const _url = `${this._heroesApiEndpoint}/${id}`;
     return this.http.get(_url)
+      .debug(`get HERO ${_url}`)
       .toPromise()
       .then(response => response as Hero)
       .catch(this._handleError);

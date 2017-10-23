@@ -12,15 +12,6 @@ const routes: Routes = [
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
   { path: 'demo-px-datatable', component: DemoPxDatatableComponent },
-  {
-    path: 'styleguide', component: HeroesComponent,
-    children: [
-      { path: 'buttons', component: DashboardComponent },
-      { path: 'typography', component: DashboardComponent }
-    ]
-  },
-  { path: 'styleguide/color-palette', component: DashboardComponent },
-  { path: 'styleguide/flexbox-grid', component: DashboardComponent },
   // lazy loaded modules
   /**
    * using { path: 'px-components', loadChildren: './+px-components/index#PxComponentsModule' },

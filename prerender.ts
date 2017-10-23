@@ -50,5 +50,8 @@ PATHS.forEach(function (route) {
     extraProviders: [
       provideModuleMap(LAZY_MODULE_MAP)
     ]
-  })).then(html => writeFileSync(join(BROWSER_FOLDER, route, 'index.html'), html));
+  })).then(html => {
+    const write = writeFileSync(join(BROWSER_FOLDER, route, 'index.html'), html);
+    console.log(write, join(BROWSER_FOLDER, route, 'index.html'), html.replace(/^.*<title>([^<]+)<.*$/gmi, "$1"));
+  });
 });
