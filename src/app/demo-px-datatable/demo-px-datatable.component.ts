@@ -1,11 +1,15 @@
-import { Component, OnInit, ElementRef, Renderer2, ViewChild, AfterViewInit, Optional } from '@angular/core';
+import {
+  Component, OnInit, ElementRef, Renderer2,
+  ChangeDetectorRef, ViewChild, AfterViewInit,
+  Optional, ViewContainerRef, ComponentFactoryResolver
+} from '@angular/core';
 
+import { Polymer, PolymerChanges, OnPolymerChange } from '@codebakery/origami';
 import { logMethod } from '../shared/decorators/log-method.decorator';
 
 
 // Ramda, RxJs, Polymer Imports
 import { List } from 'immutable';
-import { PolymerChanges } from '@codebakery/origami';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
@@ -20,6 +24,8 @@ import 'rxjs/add/operator/scan';
 
 import '../rxjs-debug';
 
+import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+
 
 import { DemoPxDatatableService } from './demo-px-datatable.service';
 
@@ -33,6 +39,10 @@ const R = require('ramda');
 })
 export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('dynamicComponent', { read: ViewContainerRef })
+  public _dynamicComponentPlaceholder;
+
+  public toggleDrawer;
   public demoDatatableItems$: Observable<List<{}>>;
   public demoDatatableItems;
   public rowAction;
@@ -77,7 +87,11 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
       ]
     }
   ];
-  constructor(private _demoPxDatatableService: DemoPxDatatableService) { }
+  constructor(private _demoPxDatatableService: DemoPxDatatableService,
+    private _changeDetectorRef: ChangeDetectorRef,
+    private _componentFactoryResolver: ComponentFactoryResolver) {
+
+  }
 
   public ngOnInit() {
 
@@ -199,6 +213,29 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
     } else {
       return `<px-toggle size="large" emitChanges></px-toggle>`;
     }
+  }
+
+
+
+  @logMethod()
+  public showDrawer(e: Event): void {
+    this.toggleDrawer = !this.toggleDrawer;
+    const componentFactory = this._componentFactoryResolver.resolveComponentFactory(HeroDetailComponent);
+    // get the viewcontainer
+    const viewContainerRef = this._dynamicComponentPlaceholder.viewContainer;
+
+
+    // instantiate the component
+    const componentRef = viewContainerRef.createComponent(componentFactory);
+    const instance: HeroDetailComponent = componentRef.instance as HeroDetailComponent;
+
+
+    // set the props
+    // instance.title = title;
+    // instance.template = template;
+    // instance.dataContext = data;
+    // instance.isCloseable = isCloseable;
+
   }
 
 }

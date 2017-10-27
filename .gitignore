@@ -8,7 +8,6 @@ README.md
 # dependencies
 bower_components
 !bower_components/px-data-table
-!bower_components/px-theme/px-theme-styles.html
 /node_modules
 !node_modules/\@codebakery/origami/\@codebakery/origami.es5.js
 
