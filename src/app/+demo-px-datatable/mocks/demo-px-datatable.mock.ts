@@ -16,3 +16,29 @@ export const DATATABLE_ITEMS: List<{}> = List<{}>([
     color: 'gray', date: 40, first: 'Jane', last: 'Bartlett', email: 'jane@scentric.com', open: false
   }
 ]);
+
+
+export const DATATABLE_ITEMS_COLDEFS: List<{}> = List<{}>([
+  {
+    name: 'last',
+    type: 'dropdown',
+    dropdownItems: [
+      { key: '1', val: 'iPhone' },
+      { key: '2', val: 'Android' },
+      { key: '3', val: 'Blackberry' },
+      { key: '4', val: 'Windows Phone' },
+      { key: '5', val: 'Flip Phone', disabled: true }
+    ]
+  },
+  {
+    name: 'color',
+    type: 'dropdown',
+    dropdownItems: [
+      { key: '1', val: 'green' },
+      { key: '2', val: 'red' },
+      { key: '3', val: 'blue', disable: true },
+      { key: '4', val: 'white' },
+      { key: '5', val: 'gray', disabled: true }
+    ]
+  }
+]);

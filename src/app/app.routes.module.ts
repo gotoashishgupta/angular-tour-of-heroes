@@ -4,14 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { DemoPxDatatableComponent } from './demo-px-datatable';
 
 const routes: Routes = [
   // components
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
-  { path: 'demo-px-datatable', component: DemoPxDatatableComponent },
+  { path: 'demo-px-datatable', loadChildren: './+demo-px-datatable/demo-px-datatable.module#DemoPxDatatableModule' },
   // lazy loaded modules
   /**
    * using { path: 'px-components', loadChildren: './+px-components/index#PxComponentsModule' },

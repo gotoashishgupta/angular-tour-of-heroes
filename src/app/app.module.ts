@@ -25,8 +25,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 import { SideMenuComponent } from './app-side-menu';
-import { DrawerComponent } from './drawer';
-import { DemoPxDatatableComponent } from './demo-px-datatable';
 
 
 import { UniversalInterceptor } from './app.universal.interceptor';
@@ -39,9 +37,7 @@ import { UniversalInterceptor } from './app.universal.interceptor';
     HeroesComponent,
     HeroDetailComponent,
     DashboardComponent,
-    HeroSearchComponent,
-    DemoPxDatatableComponent,
-    DrawerComponent
+    HeroSearchComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
