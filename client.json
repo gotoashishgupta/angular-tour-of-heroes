@@ -5,7 +5,7 @@
   },
   "assets": "https://github.build.ge.com/DTE/skeletor.git",
   "modules": [
-    "-b gs https://github.com/gotoashishgupta/angular-tour-of-heroes"
+    "-b gs git@github.build.ge.com:212591749/grayskull-app.git"
   ],
   "inject": [
     {
