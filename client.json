@@ -1,0 +1,98 @@
+{
+  "shell": {
+    "name": "https://github.build.ge.com/DTE/grayskull-shell.git",
+    "version": "v3.57.0"
+  },
+  "assets": "https://github.build.ge.com/DTE/skeletor.git",
+  "modules": [
+    "-b gs https://github.com/gotoashishgupta/angular-tour-of-heroes"
+  ],
+  "inject": [
+    {
+      "name": "GrayskullAppModule",
+      "type": "ng2",
+      "routes": true
+    }
+  ],
+  "options": {
+    "appName": "Grayskull Angular App",
+    "rootModule": "GrayskullAppModule",
+    "navStyle": "slider",
+    "html5Mode": true,
+    "alwaysShowNav": false,
+    "apiGatewayUrl": "https://battle-cat.run.asv-pr.ice.predix.io"
+  },
+  "states": {
+    "main": [
+      {
+        "title": "Dashboard",
+        "path": "dashboard",
+        "icon": "px-fea:home"
+      },
+      {
+        "title": "Demo Px Data Table",
+        "path": "demo-px-datatable",
+        "icon": "px-fea:tag"
+      },
+      {
+        "title": "Px Components",
+        "path": "px-components",
+        "icon": "px-fea:templates",
+        "grouping": [
+          {
+            "title": "Px Accordion",
+            "path": "px-components/px-accordion"
+          },
+          {
+            "title": "Px Alert Message",
+            "path": "px-components/px-alert-message"
+          },
+          {
+            "title": "Px Tabs",
+            "path": "px-components/px-tabs"
+          },
+          {
+            "title": "Px App Nav",
+            "path": "px-components/px-app-nav"
+          },
+          {
+            "title": "Px Clipboard",
+            "path": "px-components/px-clipboard"
+          },
+          {
+            "title": "Px Date Time Picker",
+            "path": "px-components/px-datetime-picker"
+          },
+          {
+            "title": "Px Datatable",
+            "path": "px-components/px-datatable"
+          },
+          {
+            "title": "Px Tooltip",
+            "path": "px-components/px-tooltip"
+          },
+          {
+            "title": "Px Branding Bar",
+            "path": "px-components/px-branding-bar"
+          },
+          {
+            "title": "Px Breadcrumbs",
+            "path": "px-components/px-breadcrumbs"
+          }
+        ]
+      },
+      {
+        "title": "Heroes",
+        "path": "heroes",
+        "icon": "px-fea:products"
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Sign Out",
+        "name": "signOut",
+        "icon": "fa-sign-out"
+      }
+    ]
+  }
+}

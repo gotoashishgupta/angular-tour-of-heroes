@@ -13,6 +13,8 @@ import { PolymerModule } from '@codebakery/origami';
  */
 import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib/collections'; // Optional
 
+
+import { IS_GRAYSKULL } from './injection-tokens';
 import { SharedModule } from './shared';
 import { AppRoutingModule } from './app.routes.module';
 
@@ -64,7 +66,11 @@ import { UniversalInterceptor } from './app.universal.interceptor';
       /* Multi is important or you will delete all the other interceptors */
       multi: true
     },
-    HeroService
+    HeroService,
+    {
+      provide: IS_GRAYSKULL,
+      useValue: false
+    }
   ],
   bootstrap: [AppComponent]
 })

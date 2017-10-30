@@ -8,7 +8,9 @@
       "node"
     ],
     "paths": {
-      "@codebakery/*": ["../node_modules/@codebakery/*"]
+      "@codebakery/*": [
+        "../node_modules/@codebakery/*"
+      ]
     }
   },
   "exclude": [
