@@ -42,12 +42,13 @@
     "px-tabs": "https://github.com/gotoashishgupta/px-tabs.git#08ad767",
     "px-datetime-picker": "^1.0.4",
     "px-tooltip": "^1.0.5",
-    "px-data-table": "^4.0.10",
+    "px-data-table": "https://github.com/gotoashishgupta/px-data-table.git#82bbad5",
     "px-accordion": "https://github.com/gotoashishgupta/px-accordion.git#728d0be",
     "px-alert-message": "^1.1.1",
     "px-branding-bar": "^1.0.6",
     "px-breadcrumbs": "https://github.com/gotoashishgupta/px-breadcrumbs.git#0cca0c2",
     "px-clipboard": "https://github.com/gotoashishgupta/px-clipboard.git#1ed344d",
-    "px-toggle": "^2.0.3"
+    "px-toggle": "^2.0.3",
+    "px-panel": "^1.0.5"
   }
 }

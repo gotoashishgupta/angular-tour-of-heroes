@@ -9,6 +9,7 @@ import { logMethod } from '../shared/decorators/log-method.decorator';
 
 
 // Ramda, RxJs, Polymer Imports
+import * as R from 'ramda';
 import { List } from 'immutable';
 
 import { Observable } from 'rxjs/Observable';
@@ -24,12 +25,8 @@ import 'rxjs/add/operator/scan';
 
 import '../rxjs-debug';
 
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
-
-
 import { DemoPxDatatableService } from './demo-px-datatable.service';
-
-const R = require('ramda');
+import { PxDatatable, PxDatatableRow } from './models/px-datatable';
 
 @Component({
   selector: 'app-demo-px-datatable',
@@ -39,54 +36,26 @@ const R = require('ramda');
 })
 export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('dynamicComponent', { read: ViewContainerRef })
-  public _dynamicComponentPlaceholder;
-
-  public toggleDrawer;
-  public demoDatatableItems$: Observable<List<{}>>;
-  public demoDatatableItems;
-  public rowAction;
-  public rowNewData;
-  public rowOldData;
+  public toggleDrawer = false;
+  public demoDatatableItems$: Observable<PxDatatable>;
+  public datatableItemsMeta$: Observable<List<{}>>;
+  public datatableItemsMeta;
+  public actionRow$: Observable<PxDatatableRow>;
+  public editRow;
 
   @ViewChild('demoDatatable')
   public demoDatatableRef: ElementRef;
 
+  @ViewChild('rightPanel')
+  public rightPanelRef: ElementRef;
+
   private _transformToInput = R.map(R.pipe(
-    R.evolve(
-      {
-        first: R.toUpper,
-        // open: this.provideToggleView
-      }
-    ),
+    R.evolve({
+      first: R.toUpper, // open: this.provideToggleView
+    }),
     R.converge(R.assoc('actions'), [this.provideRowActions, R.identity])
   ));
 
-
-  public meta = [
-    {
-      name: 'last',
-      type: 'dropdown',
-      dropdownItems: [
-        { key: '1', val: 'iPhone' },
-        { key: '2', val: 'Android' },
-        { key: '3', val: 'Blackberry' },
-        { key: '4', val: 'Windows Phone' },
-        { key: '5', val: 'Flip Phone', disabled: true }
-      ]
-    },
-    {
-      name: 'color',
-      type: 'dropdown',
-      dropdownItems: [
-        { key: '1', val: 'green' },
-        { key: '2', val: 'red' },
-        { key: '3', val: 'blue', disable: true },
-        { key: '4', val: 'white' },
-        { key: '5', val: 'gray', disabled: true }
-      ]
-    }
-  ];
   constructor(private _demoPxDatatableService: DemoPxDatatableService,
     private _changeDetectorRef: ChangeDetectorRef,
     private _componentFactoryResolver: ComponentFactoryResolver) {
@@ -94,20 +63,36 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
   }
 
   public ngOnInit() {
-
-
-    // const _transformToInput = R.compose(R.map(R.evolve({
-    //   first: R.toUpper,
-    //   open: this.provideToggleView
-    // })), R.map(R.assoc('actions', this.provideRowActions())));
-
-    this._demoPxDatatableService.datatableItems$
+    this.demoDatatableItems$ = this._demoPxDatatableService.datatableItems$
       .debug('Demo datatable before transform')
-      .map(this._transformToInput)
-      .debug('Demo datatable after transform')
-      .subscribe((res) => {
-        this.demoDatatableItems = res;
-      });
+      .map(this._transformToInput);
+    this.datatableItemsMeta$ = this._demoPxDatatableService.datatableItemsMeta$;
+
+
+    this.datatableItemsMeta = [
+      {
+        name: 'last',
+        type: 'dropdown',
+        dropdownItems: [
+          { key: '1', val: 'iPhone' },
+          { key: '2', val: 'Android' },
+          { key: '3', val: 'Blackberry' },
+          { key: '4', val: 'Windows Phone' },
+          { key: '5', val: 'Flip Phone', disabled: true }
+        ]
+      },
+      {
+        name: 'color',
+        type: 'dropdown',
+        dropdownItems: [
+          { key: '1', val: 'green' },
+          { key: '2', val: 'red' },
+          { key: '3', val: 'blue', disable: true },
+          { key: '4', val: 'white' },
+          { key: '5', val: 'gray', disabled: true }
+        ]
+      }
+    ];
   }
 
   public ngAfterViewInit() {
@@ -115,7 +100,7 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
     const action$ = Observable.fromEvent(this.demoDatatableRef.nativeElement, 'ng-px-row-action');
     const cell$ = Observable.fromEvent(this.demoDatatableRef.nativeElement, 'px-cell-click');
     // wait for event to bubble
-    action$.debounceTime(100).withLatestFrom(cell$)
+    this.actionRow$ = action$.debounceTime(100).withLatestFrom(cell$)
       .map(([x, y]: any) => {
         return {
           ...x.detail,
@@ -126,15 +111,20 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
       .map(x => {
         return this.liftedObject(['row:row.row', 'row.actions:action'], x);
       })
-      .subscribe(console.log.bind(console));
+      .debug('modified row data')
+      .share();
 
-
+    this.actionRow$.filter((x: PxDatatableRow) => x.row.actions === 'edit')
+      .map(x => x.row)
+      .subscribe((row) => {
+        this.editRow = row;
+        this.rightPanelRef.nativeElement.open();
+      });
 
     const tableDataChange$ = Observable.fromEvent(this.demoDatatableRef.nativeElement, 'table-data-changed');
     tableDataChange$.debug('table-data-changed').subscribe(console.log.bind(console));
 
   }
-
   public liftedObject(paths, @Optional() o) {
     const log = (...x) => {
       return R.tap(console.log.bind(console, '--->', ...x));
@@ -157,33 +147,6 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
 
     return fromDeepPairs(newPairs(paths)(o));
   }
-
-  @logMethod()
-  public filterTable() { return true; }
-
-  @logMethod()
-  public sortTable(a, b) {
-    if (a.value === b.value) {
-      return 0;
-    } else if (a.value < b.value) {
-      return 1;
-    } else {
-      return -1;
-    }
-  }
-
-  @logMethod()
-  public callOnAction(...args) {
-    console.log(...args);
-    return true;
-  }
-
-
-  @logMethod()
-  public rowDataChangeListen(...args) {
-    console.log(...args);
-  }
-
   public provideRowActions() {
     return `
       <button
@@ -195,10 +158,9 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
         Delete
       </button>
       <button
-        onclick="Polymer.dom(this).parentNode.fire('ng-px-row-action', { action: 'refresh' })">
-        Refresh
+        onclick="Polymer.dom(this).parentNode.fire('ng-px-row-action', { action: 'edit' })">
+        Edit
       </button>
-
       <button
         onclick="Polymer.dom(this).parentNode.fire('ng-px-row-action', { action: 'duplicate' })">
         Duplicate
@@ -209,33 +171,15 @@ export class DemoPxDatatableComponent implements OnInit, AfterViewInit {
   @logMethod()
   public provideToggleView(val) {
     if (val) {
-      return `<px-toggle size="large" emitChanges checked onblur="console.log(event)"></px-toggle>`;
+      return `<px-toggle size="large" emitChanges checked onblur="console.log.bind(console, event)"></px-toggle>`;
     } else {
       return `<px-toggle size="large" emitChanges></px-toggle>`;
     }
   }
 
-
-
   @logMethod()
-  public showDrawer(e: Event): void {
-    this.toggleDrawer = !this.toggleDrawer;
-    const componentFactory = this._componentFactoryResolver.resolveComponentFactory(HeroDetailComponent);
-    // get the viewcontainer
-    const viewContainerRef = this._dynamicComponentPlaceholder.viewContainer;
-
-
-    // instantiate the component
-    const componentRef = viewContainerRef.createComponent(componentFactory);
-    const instance: HeroDetailComponent = componentRef.instance as HeroDetailComponent;
-
-
-    // set the props
-    // instance.title = title;
-    // instance.template = template;
-    // instance.dataContext = data;
-    // instance.isCloseable = isCloseable;
-
+  public closePanel($event) {
+    this.rightPanelRef.nativeElement.close($event);
   }
 
 }

@@ -7,7 +7,6 @@ README.md
 
 # dependencies
 bower_components
-!bower_components/px-data-table
 /node_modules
 !node_modules/\@codebakery/origami/\@codebakery/origami.es5.js
 
