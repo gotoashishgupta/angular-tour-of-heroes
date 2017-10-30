@@ -23,7 +23,7 @@ const R = require('ramda');
 
 @Component({
   selector: 'app-side-menu',
-  templateUrl: './app-side-menu.html',
+  template: require('./app-side-menu.html'),
   styleUrls: ['./app-side-menu.scss'],
   providers: [SideMenuService]
 })

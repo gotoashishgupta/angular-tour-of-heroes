@@ -3,7 +3,7 @@ import { Polymer, PolymerChanges, OnPolymerChange } from '@codebakery/origami';
 
 @Component({
   selector: 'app-px-data-table',
-  templateUrl: './px-data-table.component.html',
+  template: require('./px-data-table.component.html'),
   styleUrls: ['./px-data-table.component.scss']
 })
 export class PxDataTableComponent implements OnInit, OnPolymerChange {

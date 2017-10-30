@@ -6,7 +6,7 @@ import { logMethod } from '../../shared/decorators/log-method.decorator';
 
 @Component({
   selector: 'app-px-breadcrumbs',
-  templateUrl: './px-breadcrumbs.component.html',
+  template: require('./px-breadcrumbs.component.html'),
   styleUrls: ['./px-breadcrumbs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

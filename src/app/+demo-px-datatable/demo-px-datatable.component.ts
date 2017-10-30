@@ -30,7 +30,7 @@ import { PxDatatable, PxDatatableRow } from './models/px-datatable';
 
 @Component({
   selector: 'app-demo-px-datatable',
-  templateUrl: './demo-px-datatable.component.html',
+  template: require('./demo-px-datatable.component.html'),
   styleUrls: ['./demo-px-datatable.component.scss'],
   providers: [DemoPxDatatableService]
 })

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-px-app-nav',
-  templateUrl: './px-app-nav.component.html',
+  template: require('./px-app-nav.component.html'),
   styleUrls: ['./px-app-nav.component.scss']
 })
 export class PxAppNavComponent implements OnInit {

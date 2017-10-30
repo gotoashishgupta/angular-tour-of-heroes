@@ -9,7 +9,7 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-hero-detail',
-  templateUrl: './hero-detail.component.html',
+  template: require('./hero-detail.component.html'),
   // Styles in a component are fully local to the component and don't bleed to outside components
   styleUrls: ['./hero-detail.component.scss']
 

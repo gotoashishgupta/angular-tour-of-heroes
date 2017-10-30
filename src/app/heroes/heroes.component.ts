@@ -9,7 +9,7 @@ import { HeroService } from '../shared/services/hero.service';
 
 @Component({
   selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
+  template: require('./heroes.component.html'),
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {

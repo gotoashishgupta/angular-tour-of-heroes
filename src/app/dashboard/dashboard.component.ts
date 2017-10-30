@@ -7,7 +7,7 @@ import { HeroService } from '../shared/services/hero.service';
 import { PolymerChanges } from '@codebakery/origami';
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
+  template: require('./dashboard.component.html'),
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
