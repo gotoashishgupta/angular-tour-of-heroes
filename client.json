@@ -32,12 +32,14 @@
       {
         "title": "Demo Px Data Table",
         "path": "demo-px-datatable",
-        "icon": "px-fea:tag"
+        "icon": "px-fea:tag",
+        "load": "DemoPxDatatableModule"
       },
       {
         "title": "Px Components",
         "path": "px-components",
         "icon": "px-fea:templates",
+        "load": "PxComponentsModule",
         "grouping": [
           {
             "title": "Px Accordion",
