@@ -20,8 +20,8 @@ import { Hero } from '../shared/models/hero';
 
 @Component({
   selector: 'app-hero-search',
-  template: require('./hero-search.component.html'),
-  styleUrls: ['./hero-search.component.scss'],
+  template: require('./hero-search.component.template.html'),
+  styles: [require('./hero-search.component.style.scss')],
   providers: [
     HeroSearchService
   ]

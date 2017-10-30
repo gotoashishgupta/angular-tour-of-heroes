@@ -7,8 +7,8 @@ import { HeroService } from '../shared/services/hero.service';
 import { PolymerChanges } from '@codebakery/origami';
 @Component({
   selector: 'app-dashboard',
-  template: require('./dashboard.component.html'),
-  styleUrls: ['./dashboard.component.scss']
+  template: require('./dashboard.component.template.html'),
+  styles: [require('./dashboard.component.style.scss')]
 })
 export class DashboardComponent implements OnInit {
   public heroes: List<Hero>;

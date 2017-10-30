@@ -30,8 +30,8 @@ import { PxDatatable, PxDatatableRow } from './models/px-datatable';
 
 @Component({
   selector: 'app-demo-px-datatable',
-  template: require('./demo-px-datatable.component.html'),
-  styleUrls: ['./demo-px-datatable.component.scss'],
+  template: require('./demo-px-datatable.component.template.html'),
+  styles: [require('./demo-px-datatable.component.style.scss')],
   providers: [DemoPxDatatableService]
 })
 export class DemoPxDatatableComponent implements OnInit, AfterViewInit {

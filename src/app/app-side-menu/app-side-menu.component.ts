@@ -23,8 +23,8 @@ const R = require('ramda');
 
 @Component({
   selector: 'app-side-menu',
-  template: require('./app-side-menu.html'),
-  styleUrls: ['./app-side-menu.scss'],
+  template: require('./app-side-menu.template.html'),
+  styles: [require('./app-side-menu.style.scss')],
   providers: [SideMenuService]
 })
 export class SideMenuComponent implements OnInit {

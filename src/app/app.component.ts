@@ -7,8 +7,8 @@ import 'rxjs/add/operator/pluck';
 
 @Component({
   selector: 'app-root',
-  template: require('./app.component.html'),
-  styleUrls: ['./app.component.scss']
+  template: require('./app.component.template.html'),
+  styles: [require('./app.component.style.scss')]
 })
 export class AppComponent implements OnInit {
 

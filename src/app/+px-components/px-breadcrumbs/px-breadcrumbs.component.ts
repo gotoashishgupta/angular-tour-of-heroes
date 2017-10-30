@@ -6,8 +6,8 @@ import { logMethod } from '../../shared/decorators/log-method.decorator';
 
 @Component({
   selector: 'app-px-breadcrumbs',
-  template: require('./px-breadcrumbs.component.html'),
-  styleUrls: ['./px-breadcrumbs.component.scss'],
+  template: require('./px-breadcrumbs.component.template.html'),
+  styles: [require('./px-breadcrumbs.component.style.scss')],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PxBreadcrumbsComponent implements OnInit, OnPolymerChange, OnChanges {

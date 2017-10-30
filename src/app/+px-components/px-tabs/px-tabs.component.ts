@@ -4,8 +4,8 @@ import { PolymerChanges } from '@codebakery/origami';
 
 @Component({
   selector: 'app-px-tabs',
-  template: require('./px-tabs.component.html'),
-  styleUrls: ['./px-tabs.component.scss']
+  template: require('./px-tabs.component.template.html'),
+  styles: [require('./px-tabs.component.style.scss')]
 })
 export class PxTabsComponent implements OnInit {
 

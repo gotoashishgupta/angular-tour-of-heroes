@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-px-branding-bar',
-  template: require('./px-branding-bar.component.html'),
-  styleUrls: ['./px-branding-bar.component.scss']
+  template: require('./px-branding-bar.component.template.html'),
+  styles: [require('./px-branding-bar.component.style.scss')]
 })
 export class PxBrandingBarComponent implements OnInit {
 
