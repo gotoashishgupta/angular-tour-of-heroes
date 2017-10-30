@@ -7,11 +7,14 @@ import { HeroService } from '../shared/services/hero.service';
 
 import 'rxjs/add/operator/switchMap';
 
+import * as template from './hero-detail.component.template.html';
+
+import * as styles from './hero-detail.component.style.scss';
 @Component({
   selector: 'app-hero-detail',
-  template: require('./hero-detail.component.template.html'),
+  template: `${template}`,
   // Styles in a component are fully local to the component and don't bleed to outside components
-  styles: [require('./hero-detail.component.style.scss')]
+  styles: [`${styles}`]
 
 })
 export class HeroDetailComponent implements OnInit {

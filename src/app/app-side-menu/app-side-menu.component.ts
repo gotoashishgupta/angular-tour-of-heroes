@@ -21,10 +21,14 @@ import { SideMenuService } from './app-side-menu.service';
 
 const R = require('ramda');
 
+import * as template from './app-side-menu.template.html';
+import * as styles from './app-side-menu.style.scss';
 @Component({
   selector: 'app-side-menu',
-  template: require('./app-side-menu.template.html'),
-  styles: [require('./app-side-menu.style.scss')],
+  //   templateUrl: './app-side-menu.html',
+  //   styleUrls: ['./app-side-menu.scss'],
+  template: `${template}`,
+  styles: [`${styles}`],
   providers: [SideMenuService]
 })
 export class SideMenuComponent implements OnInit {

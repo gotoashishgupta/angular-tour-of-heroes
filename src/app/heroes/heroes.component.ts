@@ -7,10 +7,12 @@ import { Hero } from '../shared/models/hero';
 
 import { HeroService } from '../shared/services/hero.service';
 
+import * as template from './heroes.component.template.html';
+import * as styles from './heroes.component.style.scss';
 @Component({
   selector: 'app-heroes',
-  template: require('./heroes.component.template.html'),
-  styles: [require('./heroes.component.style.scss')]
+  template: `${template}`,
+  styles: [`${styles}`]
 })
 export class HeroesComponent implements OnInit {
   public selectedHero: Hero;

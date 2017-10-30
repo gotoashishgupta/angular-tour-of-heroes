@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+import * as template from './px-tooltip.component.template.html';
+import * as styles from './px-tooltip.component.style.scss';
 @Component({
   selector: 'app-px-tooltip',
-  template: require('./px-tooltip.component.template.html'),
-  styles: [require('./px-tooltip.component.style.scss')]
+  template: `${template}`,
+  styles: [`${styles}`]
 })
 export class PxTooltipComponent implements OnInit {
 

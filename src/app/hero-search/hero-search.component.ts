@@ -17,11 +17,13 @@ import { List } from 'immutable';
 import { HeroSearchService } from './hero-search.service';
 import { Hero } from '../shared/models/hero';
 
+import * as template from './hero-search.component.template.html';
+import * as styles from './hero-search.component.style.scss';
 
 @Component({
   selector: 'app-hero-search',
-  template: require('./hero-search.component.template.html'),
-  styles: [require('./hero-search.component.style.scss')],
+  template: `${template}`,
+  styles: [`${styles}`],
   providers: [
     HeroSearchService
   ]

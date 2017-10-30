@@ -4,10 +4,13 @@ import { IBreadcrumbsGraph } from './models/breadcrumbs-graph.model';
 import { PolymerChanges, OnPolymerChange } from '@codebakery/origami';
 import { logMethod } from '../../shared/decorators/log-method.decorator';
 
+import * as template from './px-breadcrumbs.component.template.html';
+import * as styles from './px-breadcrumbs.component.style.scss';
 @Component({
   selector: 'app-px-breadcrumbs',
-  template: require('./px-breadcrumbs.component.template.html'),
-  styles: [require('./px-breadcrumbs.component.style.scss')],
+
+  template: `${template}`,
+  styles: [`${styles}`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PxBreadcrumbsComponent implements OnInit, OnPolymerChange, OnChanges {

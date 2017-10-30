@@ -28,10 +28,13 @@ import '../rxjs-debug';
 import { DemoPxDatatableService } from './demo-px-datatable.service';
 import { PxDatatable, PxDatatableRow } from './models/px-datatable';
 
+import * as template from './demo-px-datatable.component.template.html';
+import * as styles from './demo-px-datatable.component.style.scss';
+
 @Component({
   selector: 'app-demo-px-datatable',
-  template: require('./demo-px-datatable.component.template.html'),
-  styles: [require('./demo-px-datatable.component.style.scss')],
+  template: `${template}`,
+  styles: [`${styles}`],
   providers: [DemoPxDatatableService]
 })
 export class DemoPxDatatableComponent implements OnInit, AfterViewInit {

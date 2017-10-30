@@ -1,10 +1,12 @@
 import { Component, ChangeDetectorRef, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Polymer, PolymerChanges, OnPolymerChange } from '@codebakery/origami';
 
+import * as template from './px-data-table.component.template.html';
+import * as styles from './px-data-table.component.style.scss';
 @Component({
   selector: 'app-px-data-table',
-  template: require('./px-data-table.component.template.html'),
-  styles: [require('./px-data-table.component.style.scss')]
+  template: `${template}`,
+  styles: [`${styles}`]
 })
 export class PxDataTableComponent implements OnInit, OnPolymerChange {
 

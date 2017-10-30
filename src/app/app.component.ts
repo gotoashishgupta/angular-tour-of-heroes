@@ -7,10 +7,12 @@ import 'rxjs/add/operator/pluck';
 
 import { IS_GRAYSKULL } from './injection-tokens';
 
+import * as template from './app.component.template.html';
+import * as styles from './app.component.style.scss';
 @Component({
   selector: 'app-root',
-  template: require('./app.component.template.html'),
-  styles: [require('./app.component.style.scss')]
+  template: `${template}`,
+  styles: [`${styles}`]
 })
 export class AppComponent implements OnInit {
 
