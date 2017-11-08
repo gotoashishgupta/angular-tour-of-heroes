@@ -17,16 +17,16 @@ const routes: Routes = [
   {
     path: '', component: PxComponent,
     children: [
-      { path: 'px-accordion', component: PxAccordionComponent },
-      { path: 'px-tabs', component: PxTabsComponent },
-      { path: 'px-app-nav', component: PxAppNavComponent },
-      { path: 'px-clipboard', component: PxClipboardComponent },
-      { path: 'px-datetime-picker', component: PxDatetimePickerComponent },
-      { path: 'px-datatable', component: PxDataTableComponent },
-      { path: 'px-alert-message', component: PxAlertMessageComponent },
-      { path: 'px-tooltip', component: PxTooltipComponent },
-      { path: 'px-branding-bar', component: PxBrandingBarComponent },
-      { path: 'px-breadcrumbs', component: PxBreadcrumbsComponent }
+      { path: 'px-accordion', component: PxAccordionComponent, data: { title: 'Px Accordion' } },
+      { path: 'px-tabs', component: PxTabsComponent, data: { title: 'Px Tabs' } },
+      { path: 'px-app-nav', component: PxAppNavComponent, data: { title: 'Px App Nav' } },
+      { path: 'px-clipboard', component: PxClipboardComponent, data: { title: 'Px Clipboard' } },
+      { path: 'px-datetime-picker', component: PxDatetimePickerComponent, data: { title: 'Px Datetime Picker' } },
+      { path: 'px-datatable', component: PxDataTableComponent, data: { title: 'Px Datatable' } },
+      { path: 'px-alert-message', component: PxAlertMessageComponent, data: { title: 'Px Alert Message' } },
+      { path: 'px-tooltip', component: PxTooltipComponent, data: { title: 'Px Tooltip' } },
+      { path: 'px-branding-bar', component: PxBrandingBarComponent, data: { title: 'Px Branding Bar' } },
+      { path: 'px-breadcrumbs', component: PxBreadcrumbsComponent, data: { title: 'Px Breadcrumbs' } }
 
     ]
   }

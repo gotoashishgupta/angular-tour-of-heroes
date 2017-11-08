@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '', component: DemoPxDatatableComponent,
     children: [
-      { path: 'edit', component: EditPxDatatableRowComponent }
+      { path: 'edit', component: EditPxDatatableRowComponent, data: { title: 'Edit Row' } }
     ]
   }
 ];
