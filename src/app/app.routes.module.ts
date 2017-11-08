@@ -6,12 +6,17 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 const routes: Routes = [
-  // components
-  { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' } },
-  { path: 'detail/:id', component: HeroDetailComponent, data: { title: 'Hero Details' } },
-  { path: 'heroes', component: HeroesComponent, data: { title: 'Heroes List' } },
   {
-    path: 'demo-px-datatable', loadChildren: './+demo-px-datatable/demo-px-datatable.module#DemoPxDatatableModule',
+    path: '',
+    children: [
+      { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' } },
+      { path: 'detail/:id', component: HeroDetailComponent, data: { title: 'Hero Details' } },
+      { path: 'heroes', component: HeroesComponent, data: { title: 'Heroes List' } },
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    ]
+  },
+  {
+    path: 'demo-px-datatable', loadChildren: '@modules/demo-px-datatable/demo-px-datatable.module#DemoPxDatatableModule',
     data: { title: 'Datatable Demo' }
   },
   // lazy loaded modules
@@ -23,10 +28,9 @@ const routes: Routes = [
    * to avoid this error use { path: 'px-components', loadChildren: './+px-components/px-components.module#PxComponentsModule' }
    */
   {
-    path: 'px-components', loadChildren: './+px-components/px-components.module#PxComponentsModule',
+    path: 'px-components', loadChildren: '@modules/px-components/px-components.module#PxComponentsModule',
     data: { title: 'Px Components' }
-  },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+  }
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { List } from 'immutable';
 
-import { Hero } from '../models/hero';
+import { Hero } from './hero';
 
 export const HEROES: List<Hero> = List<Hero>([
   { id: 11, name: 'Mr. Nice' },

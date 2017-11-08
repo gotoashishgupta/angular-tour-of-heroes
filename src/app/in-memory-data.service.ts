@@ -3,13 +3,13 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 import { List } from 'immutable';
 
-import { Hero } from './shared/models/hero';
-import { HEROES } from './shared/mocks/mock-heroes';
+import { Hero } from '@modules/app/heroes/hero';
+import { HEROES } from '@modules/app/heroes/mock-heroes';
 
 import { SideMenuItemModel } from './app-side-menu/models/side-menu-item.model';
 import { SIDE_MENU_ITEMS } from './app-side-menu/mocks/mock-side-menu-items';
 
-import { DATATABLE_ITEMS, DATATABLE_ITEMS_COLDEFS } from './+demo-px-datatable/mocks/demo-px-datatable.mock';
+import { DATATABLE_ITEMS, DATATABLE_ITEMS_COLDEFS } from '@modules/demo-px-datatable/mocks/demo-px-datatable.mock';
 
 @Injectable()
 export class InMemoryDataService implements InMemoryDbService {

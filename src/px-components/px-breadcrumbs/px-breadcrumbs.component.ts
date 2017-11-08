@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy, OnChange
 import { breadcrumbsGraph } from './mocks/breadcrumbs-graph.mock';
 import { IBreadcrumbsGraph } from './models/breadcrumbs-graph.model';
 import { PolymerChanges, OnPolymerChange } from '@codebakery/origami';
-import { logMethod } from '../../shared/decorators/log-method.decorator';
+import { logMethod } from '@modules/shared/decorators/log-method.decorator';
 
 @Component({
   selector: 'app-px-breadcrumbs',

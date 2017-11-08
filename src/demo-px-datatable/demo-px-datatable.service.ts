@@ -4,7 +4,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
-import '../rxjs-debug';
+
+import '@modules/shared/util/rxjs-debug';
 
 import { List } from 'immutable';
 

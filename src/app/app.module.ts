@@ -13,13 +13,13 @@ import { PolymerModule } from '@codebakery/origami';
  */
 import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib/collections'; // Optional
 
-import { SharedModule } from './shared';
+import { SharedModule } from '@modules/shared';
 import { AppRoutingModule } from './app.routes.module';
 
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
-import { HeroService } from './shared/services/hero.service';
+import { HeroService } from './heroes/hero.service';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';

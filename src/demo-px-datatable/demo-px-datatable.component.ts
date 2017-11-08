@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 
 import { Polymer, PolymerChanges, OnPolymerChange } from '@codebakery/origami';
-import { logMethod } from '../shared/decorators/log-method.decorator';
+import { logMethod } from '@modules/shared/decorators/log-method.decorator';
 
 
 // Ramda, RxJs, Polymer Imports
@@ -23,7 +23,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/scan';
 
 
-import '../rxjs-debug';
+import '@modules/shared/util/rxjs-debug';
 
 import { DemoPxDatatableService } from './demo-px-datatable.service';
 import { PxDatatable, PxDatatableRow } from './models/px-datatable';
