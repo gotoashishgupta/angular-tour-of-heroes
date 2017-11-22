@@ -4,6 +4,7 @@ import { SideMenuItemModel } from '../models/side-menu-item.model';
 
 export const SIDE_MENU_ITEMS: List<SideMenuItemModel> = List<SideMenuItemModel>([
 
+  { label: 'Microservice', id: 'home', icon: 'px-fea:microservice' },
   { label: 'Dashboard', id: 'dashboard', icon: 'px-fea:home' },
   { label: 'Demo Px Data Table', id: 'demo-px-datatable', icon: 'px-fea:tag' },
   {

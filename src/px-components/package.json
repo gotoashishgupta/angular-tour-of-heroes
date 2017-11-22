@@ -1,0 +1,10 @@
+{
+  "name": "@ashtr/demo-px-components",
+  "version": "0.0.1",
+  "description": "predix-ui components demo in angular5",
+  "main": "index.ts",
+  "repository": "git@github.com:gotoashishgupta/universal-angular-px-components-submodule.git",
+  "author": "Ashish Gupta <gotoashishgupta@gmail.com>",
+  "license": "MIT",
+  "private": true
+}

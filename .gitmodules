@@ -1,0 +1,10 @@
+[submodule "src/px-components"]
+	path = src/px-components
+	url = https://github.com/gotoashishgupta/universal-angular-px-components-submodule.git
+[submodule "src/demo-px-datatable"]
+	path = src/demo-px-datatable
+	url = https://github.com/gotoashishgupta/universal-angular-polymer-app-demo-px-datattable.git
+[submodule "src/named-outlets"]
+	path = src/named-outlets
+	url = https://github.com/gotoashishgupta/ng2-named-router-outlets.git
+	branch = ngDoBootstrap

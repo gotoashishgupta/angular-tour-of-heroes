@@ -16,6 +16,11 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'home',
+    loadChildren: '@modules/named-outlets/src/app/app.module#AppModule',
+    data: { title: 'Named Outlet' }
+  },
+  {
     path: 'demo-px-datatable', loadChildren: '@modules/demo-px-datatable/demo-px-datatable.module#DemoPxDatatableModule',
     data: { title: 'Datatable Demo' }
   },
@@ -36,7 +41,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      enableTracing: false  // <-- debugging purposes only
+      enableTracing: true  // <-- debugging purposes only
     })
   ],
   exports: [RouterModule]

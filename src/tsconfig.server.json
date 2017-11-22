@@ -8,11 +8,17 @@
       "node"
     ],
     "paths": {
-      "@codebakery/*": ["../node_modules/@codebakery/*"]
+      "@codebakery/*": [
+        "../node_modules/@codebakery/*"
+      ],
+      "@modules/*": [
+        "../src/*"
+      ]
     }
   },
   "exclude": [
     "test.ts",
+    "**/*.e2e-spec.ts",
     "**/*.spec.ts"
   ],
   "angularCompilerOptions": {
