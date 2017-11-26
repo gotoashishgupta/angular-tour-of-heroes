@@ -8,6 +8,8 @@ import { environment } from './environments/environment';
 
 if (environment.production) {
   enableProdMode();
+} else {
+  require('zone.js/dist/long-stack-trace-zone');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
