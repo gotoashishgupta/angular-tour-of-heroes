@@ -30,7 +30,8 @@
     "webcomponentsjs": "^v1.0.2",
     "polymer": "^2.1.0",
     "px-app-nav": "bbb6074c04d1813",
-    "px-theme": "32591636e"
+    "px-theme": "32591636e",
+    "px-app-helpers": "^1.0.0"
   },
   "dependencies": {
     "px-app-nav": "https://github.com/gotoashishgupta/px-app-nav.git#bbb6074c04d1813",
